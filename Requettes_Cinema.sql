@@ -128,6 +128,18 @@ WHERE film.dateDeSortie_film >= DATE_SUB(CURDATE(), INTERVAL 5 YEAR)
 
 
 --j. Nombre d’hommes et de femmes parmi les acteurs
+	SELECT 
+    p.sexe AS sexe,
+    COUNT(a.id_acteur) AS Nombre
+FROM 
+    personne p
+INNER JOIN 
+    acteur a
+ON 
+    p.id_personne = a.id_personne
+GROUP BY 
+   p.sexe;
+
 --k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu)
 
 
