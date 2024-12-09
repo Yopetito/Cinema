@@ -38,7 +38,7 @@ ON f.id_realisateur = r.id_realisateur
 INNER JOIN personne p
 ON r.id_personne = p.id_personne
 
-WHERE CONCAT(p.prenom, ' ', p.nom) = 'Christopher Nolan'
+WHERE r.id_realisateur = 1
 
 --d. Nombre de films par genre (classés dans l’ordre décroissant)
 
@@ -55,7 +55,7 @@ GROUP BY g.id_genre
 
 --e. Nombre de films par réalisateur (classés dans l’ordre décroissant)
 
-SELECT CONCAT(p.prenom, ' ', p.nom) AS Realisateur, COUNT(f.id_realisateur) AS Films
+SELECT CONCAT(p.prenom, ' ', p.nom) AS Realisateur, COUNT(f.id_realisateur) AS QteFilms
 FROM personne p
 
 INNER JOIN realisateur r
@@ -73,9 +73,12 @@ ORDER BY Films DESC
 SELECT 
    f.titre_film,
    CONCAT(p.prenom, ' ', p.nom) AS Nom,
+   per.nom_personnage,
    p.sexe
 FROM 
    casting c
+   
+INNER JOIN personnage per ON c.id_personnage = per.id_personnage
 INNER JOIN film f ON c.id_film = f.id_film
 INNER JOIN acteur a ON c.id_acteur = a.id_acteur
 INNER JOIN personne p ON a.id_personne = p.id_personne
@@ -85,11 +88,11 @@ WHERE
 --g. Films tournés par un acteur en particulier (id_acteur) avec leur rôle et l’année de
 --sortie (du film le plus récent au plus ancien)
 
-SELECT film.titre_film, DATE_FORMAT(film.dateDeSortie_film, '%Y') AS Annee_Sortie, personnages.nom_personnage
+SELECT film.titre_film, DATE_FORMAT(film.dateDeSortie_film, '%Y') AS Annee_Sortie, personnage.nom_personnage
 FROM casting
 
-INNER JOIN personnages
-ON casting.id_personnage = personnages.id_personnage
+INNER JOIN personnage
+ON casting.id_personnage = personnage.id_personnage
 
 INNER JOIN film
 ON casting.id_film = film.id_film
@@ -103,8 +106,8 @@ ON acteur.id_personne = personne.id_personne
 
 WHERE acteur.id_acteur = 1
 
-ORDER BY Annee_Sortie DESC
-
+ORDER BY film.dateDeSortie_film DESC
+	
 --h. Liste des personnes qui sont à la fois acteurs et réalisateurs
 
 SELECT CONCAT(p.nom, ' ', p.prenom) AS acteur_et_realisateur
@@ -142,7 +145,17 @@ GROUP BY
 
 --k. Liste des acteurs ayant plus de 50 ans (âge révolu et non révolu)
 
-
+SELECT 
+    CONCAT(p.prenom, ' ', p.nom) AS Nom_Acteur,
+    YEAR(CURDATE()) - YEAR(p.dateNaissance) AS Age
+FROM 
+    personne p
+INNER JOIN 
+    acteur a
+ON 
+    p.id_personne = a.id_personne
+WHERE 
+    (YEAR(CURDATE()) - YEAR(p.dateNaissance)) >= 50;
 
 --l. Acteurs ayant joué dans 3 films ou plus
 SELECT CONCAT(p.prenom, ' ', p.nom) AS Veteran
