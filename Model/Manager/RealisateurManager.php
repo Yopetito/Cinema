@@ -46,6 +46,7 @@ class RealisateurManager {
         $pdo = Connect::seConnecter();
         $requeteRealisateurFilm = $pdo->prepare("
             SELECT r.id_realisateur, 
+            f.id_film,
             f.titre_film
             FROM film f
 

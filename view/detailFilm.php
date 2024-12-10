@@ -5,6 +5,7 @@ foreach ($films as $film) { ?>
     <p> Date de sortie: <?= $film["dateDeSortie_film"]; ?></p>
     <p> Durée: <?= $film["duree_film"] ?></p>
     <p> Realisateur: <?= $film["realisateur"] ?></p>
+    <p> Genre: <a href="index.php?action=detailGenre&id=<?= $film["id_genre"] ?>"><?= $film["nom_genre"] ?></a></p>
 <?php } ?>
 
 
@@ -19,8 +20,8 @@ foreach ($films as $film) { ?>
         <?php
         foreach($castings as $casting) { ?>
             <tr>
-                <td><?= $casting["nom"] ?></td>
-                <td><?= $casting["nom_personnage"] ?></td>
+                <td><a href="index.php?action=detailActeur&id=<?= $casting["id_acteur"] ?>"><?= $casting["nomprenom"] ?></a></td>
+                <td><a href="index.php?action=detailPersonnage&id=<?= $casting["id_personnage"] ?>"><?= $casting["nom_personnage"] ?></a></td>
             </tr>
         <?php } ?>       
     </tbody>

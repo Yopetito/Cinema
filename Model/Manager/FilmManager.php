@@ -30,7 +30,12 @@ class FilmManager {
     public function getDetailFilms($id) {
         $pdo = Connect::seConnecter();
         $requeteInfoFilm = $pdo->prepare("
-            SELECT f.titre_film, f.dateDeSortie_film, f.duree_film, CONCAT(p.nom, ' ', p.prenom) AS realisateur
+            SELECT f.titre_film, 
+            f.dateDeSortie_film, 
+            f.duree_film, 
+            CONCAT(p.nom, ' ', p.prenom) AS realisateur,
+            genre.nom_genre,
+            genre.id_genre
             FROM film f
 
             INNER JOIN realisateur
@@ -39,6 +44,12 @@ class FilmManager {
             INNER JOIN personne p
             ON realisateur.id_personne = p.id_personne
 
+            INNER JOIN film_genre
+            ON f.id_film = film_genre.id_film
+
+            INNER JOIN genre
+            ON film_genre.id_genre = genre.id_genre
+            
             WHERE f.id_film = :id
         ");
         $requeteInfoFilm->execute(["id" => $id]);
@@ -49,7 +60,9 @@ class FilmManager {
     public function getFilmCasting($id) {
         $pdo = Connect::seConnecter();
         $requeteCasting = $pdo->prepare("
-            SELECT p.nom,
+            SELECT a.id_acteur,
+            personnage.id_personnage, 
+            CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
             personnage.nom_personnage
             FROM film f
 

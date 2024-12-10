@@ -15,7 +15,7 @@ foreach($realisateurs as $realisateur){ ?>
         <?php
         foreach($films as $film) { ?>
             <tr>
-                <td><?= $film["titre_film"] ?></td>
+                <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre_film"] ?></a></td>
             </tr>
         <?php } ?>       
     </tbody>

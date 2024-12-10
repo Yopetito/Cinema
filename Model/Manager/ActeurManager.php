@@ -45,7 +45,9 @@ Class ActeurManager {
         $pdo = Connect::seConnecter();
         $requeteCastingActeur = $pdo->prepare("
             SELECT acteur.id_acteur, 
+            film.id_film, 
             film.titre_film,
+            personnage.id_personnage,
             personnage.nom_personnage
             FROM casting
 

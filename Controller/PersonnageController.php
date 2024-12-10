@@ -13,4 +13,13 @@ class PersonnageController {
         require "view\listPersonnages.php";
     }
 
- }
+    public function detailPersonnage($id) {
+         
+        $personnageManager = new PersonnageManager();
+        $persoFilms = $personnageManager->getPersoFilms($id);
+       
+
+        
+        require "view\detailPersonnage.php";
+    }
+}

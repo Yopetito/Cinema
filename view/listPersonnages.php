@@ -15,7 +15,7 @@ ob_start();
         <?php
             foreach($personnages as $personnage) { ?>
             <tr>
-                <td><?= $personnage["nom_personnage"] ?></td>
+                <td><a href="index.php?action=detailPersonnage&id=<?= $personnage["id_personnage"] ?>"><?= $personnage["nom_personnage"] ?></a></td>
             </tr>
             <?php } ?>
     </tbody>

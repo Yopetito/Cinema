@@ -16,8 +16,8 @@ foreach($acteurs as $acteur){ ?>
         <?php
         foreach($castings as $casting) { ?>
             <tr>
-                <td><?= $casting["titre_film"] ?></td>
-                <td><?= $casting["nom_personnage"] ?></td>
+                <td><a href="index.php?action=detailFilm&id=<?= $casting["id_film"] ?>"><?= $casting["titre_film"] ?></a></td>
+                <td><a href="index.php?action=detailPersonnage&id=<?= $casting["id_personnage"] ?>"><?= $casting["nom_personnage"] ?></a></td>
             </tr>
         <?php } ?>       
     </tbody>
