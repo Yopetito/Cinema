@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --degrade-titres: linear-gradient(to right, white, #0D1F79);
+    --primary-font: "Krub", sans-serif;
+}
+
+/* ===========================================NAVBAR======================================== */
+
+.navbar {
+    height: 10vh;
+    background: var(--degrade-titres);
+    display: flex;
+    align-items: center;
+    border-bottom: solid 5px black;
+}
+
+.logo {
+    height: 100%;
+}
+
+.boutons {
+    display: flex;
+    margin-left: auto;
+    justify-content: right;
+    padding-right: 30px;
+
+}
+
+.boutons a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+.boutons a:not(:last-child) {
+    border-right: 1px solid white;
+    padding-right: 20px; /* Ajoute de l'espace pour la ligne */
+}
+
+/* =====================================BANNIERE SLOGAN ==================================== */
+
+.slogan {
+    height: 40vh;
+    display: flex;
+    position: relative;
+}
+
+.slogan img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slogan p {
+    font-weight: 600;
+    font-size: 28px;
+    font-family: var(--primary-font);
+    position: absolute;
+    padding-top: 3%;
+    margin-left: 5%;
+}
+
+/* ================================DERNIER FILMS AJOUTES================================================= */
+
+.dernierfilms {
+    height: 50vh;
+}
+
+.banierefilms {
+    display: flex;
+    height: 15%;
+    background: var(--degrade-titres);
+    width: 100%;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.banierefilms p {
+    font-size: 24px;
+    font-family: var(--primary-font);
+    text-decoration: underline;
+    margin: 0;
+}
+
+.affichefilms {
+    display: grid;
+    height: 35%;
+    margin-top: 100px;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: 100%;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.affichefilms img {
+    height: 260px;
+    width: 200px;
+    object-fit: cover;
+    border: solid 4px black;
+}
+
+/* ================================TOP ACTEURS RECHERCHE================================================= */
+
+.topacteurs {
+    height: 50vh;
+}
+
+.baniereacteurs {
+    display: flex;
+    height: 15%;
+    background: var(--degrade-titres);
+    width: 100%;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.baniereacteurs p {
+    font-size: 24px;
+    font-family: var(--primary-font);
+    text-decoration: underline;
+    margin: 0;
+}
+
+.afficheacteurs {
+    display: grid;
+    height: 35%;
+    margin-top: 100px;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: 100%;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.acteur img {
+    height: 260px;
+    width: 200px;
+    object-fit: cover;
+    border: solid 4px black;
+}
+
+.acteur p {
+    font-size: 20px;
+    font-family: var(--primary-font);
+    text-align: center;
+}
