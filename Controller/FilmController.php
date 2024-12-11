@@ -37,7 +37,7 @@ class FilmController {
             $duree = $_POST['duree'];
             $synopsis = $_POST['synopsis'];
             $realisateur = $_POST['id_realisateur'];
-            $genre = $_POST['id_genre'] ?? [];
+            $genre = $_POST['id_genre'];
 
             $filmManager = new FilmManager();
             $filmManager->insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $genre);
