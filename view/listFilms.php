@@ -5,7 +5,7 @@ ob_start();
 
 <p class="uk-label uk-label-warning">Il y a <?= count($films) ?> films</p>
 
-<table class="uk-table uk-table-striped">
+<table border = 1 class="uk-table uk-table-striped">
     <thead>
         <tr>
             <th>TITRE</th>
@@ -26,7 +26,6 @@ ob_start();
             <?php } ?>
     </tbody>
 </table>
-
 <?php
 
 $titre = "Liste des films";

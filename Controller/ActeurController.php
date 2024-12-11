@@ -23,6 +23,4 @@ class ActeurController {
         
         require "view\detailActeur.php";
     }
-
-
 }

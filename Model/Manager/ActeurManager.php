@@ -8,7 +8,7 @@ Class ActeurManager {
     public function getActeurs() {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-            SELECT a.id_acteur, 
+            SELECT a.id_acteur,
             CONCAT(p.nom, ' ', p.prenom) AS nom_prenom
             FROM personne p
 
@@ -28,7 +28,7 @@ Class ActeurManager {
             SELECT acteur.id_acteur, 
             CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
             p.sexe,
-            p.dateNaissance
+            DATE_FORMAT(p.dateNaissance, '%d/%m/%Y') AS dateNaissance
             FROM personne p
 
             INNER JOIN acteur
@@ -47,6 +47,7 @@ Class ActeurManager {
             SELECT acteur.id_acteur, 
             film.id_film, 
             film.titre_film,
+            DATE_FORMAT(film.dateDeSortie_film, '%d/%m/%Y') AS dateSortie,
             personnage.id_personnage,
             personnage.nom_personnage
             FROM casting

@@ -5,7 +5,7 @@ ob_start();
 
 <p class="uk-label uk-label-warning">Il y a <?= count($genres) ?> Genres</p>
 
-<table class="uk-table uk-table-striped">
+<table border = 1 class="uk-table uk-table-striped">
     <thead>
         <tr>
             <th>Genre</th>
@@ -21,6 +21,7 @@ ob_start();
     </tbody>
 </table>
 
+<button onclick="window.location.href='index.php?action=addGenre';">Ajouter un genre</button>
 <?php
 
 $titre = "Liste des Genres";

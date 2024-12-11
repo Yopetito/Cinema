@@ -9,8 +9,8 @@ class FilmManager {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT f.id_film, f.titre_film, 
-	        DATE_FORMAT(f.dateDeSortie_film, '%e/%c/%Y') AS Date_de_sortie,
-	        DATE_FORMAT(SEC_TO_TIME(f.duree_film * 60),'%H:%i') AS Duration,
+	        DATE_FORMAT(f.dateDeSortie_film, '%d/%m/%Y') AS Date_de_sortie,
+	        DATE_FORMAT(SEC_TO_TIME(f.duree_film * 60),'%Hh%i') AS Duration,
 	        CONCAT(p.prenom, ' ', p.nom) AS Createur
             FROM film f
 
@@ -30,9 +30,10 @@ class FilmManager {
     public function getDetailFilms($id) {
         $pdo = Connect::seConnecter();
         $requeteInfoFilm = $pdo->prepare("
-            SELECT f.titre_film, 
-            f.dateDeSortie_film, 
-            f.duree_film, 
+            SELECT realisateur.id_realisateur,
+            f.titre_film, 
+            DATE_FORMAT(f.dateDeSortie_film, '%d/%m/%Y') AS dateSortie, 
+            DATE_FORMAT(SEC_TO_TIME(f.duree_film * 60), '%Hh%i') AS duree, 
             CONCAT(p.nom, ' ', p.prenom) AS realisateur,
             genre.nom_genre,
             genre.id_genre
@@ -79,6 +80,8 @@ class FilmManager {
             ON a.id_personne = p.id_personne
 
             WHERE f.id_film = :id
+
+            ORDER BY nomprenom ASC
         ");
         $requeteCasting->execute(["id" => $id]);
         $castings = $requeteCasting->fetchAll();

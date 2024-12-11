@@ -33,6 +33,7 @@ if(isset($_GET["action"])){
         case "detailRealisateur" : $ctrlRealisateur->detailRealisateur($id); break;
         case "detailPersonnage" : $ctrlPersonnage->detailPersonnage($id); break;
         case "detailGenre" : $ctrlGenre->detailGenre($id); break;
+        case "addGenre" : $ctrlGenre->addGenre(); break;
     }
 }
 ?>
