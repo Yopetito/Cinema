@@ -67,5 +67,26 @@ Class ActeurManager {
         $castings = $requeteCastingActeur->fetchAll();
         return $castings;
     }
+    
+    public function insertActeur($nomActeur, $prenomActeur, $sexe, $dateNaissance) {
+        $pdo = Connect::seConnecter();
+        $requeteAddPersonne = $pdo->prepare("
+            INSERT INTO personne (nom, prenom, sexe, dateNaissance)
+            VALUES (:nom, :prenom, :sexe, :dateNaissance)
+            ");
+        $requeteAddPersonne->execute([
+            "nom" => $nomActeur,
+            "prenom" => $prenomActeur,
+            "sexe" => $sexe,
+            "dateNaissance" => $dateNaissance
+        ]);
 
+        $lastIdPersonne = $pdo->lastInsertId();
+
+        $requetteAddActeur = $pdo->prepare("
+            INSERT INTO acteur (id_personne)
+            VALUES (:id_personne)
+        ");
+        $requetteAddActeur->execute(["id_personne" => $lastIdPersonne]);
+    }
 }

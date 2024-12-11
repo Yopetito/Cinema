@@ -88,4 +88,62 @@ class FilmManager {
 
         return $castings;
     }
+
+    public function getRealisateurs() {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("
+            SELECT r.id_realisateur, 
+            CONCAT(p.prenom, ' ', p.nom) AS nomprenom
+            FROM personne p
+
+            INNER JOIN realisateur r
+            ON p.id_personne = r.id_personne
+
+            ORDER BY p.nom ASC
+        ");
+
+        $realisateurs = $requete->fetchAll();
+
+        return $realisateurs;
+    }
+
+    public function getGenres() {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("
+            SELECT genre.id_genre, genre.nom_genre
+            FROM genre
+
+            ORDER BY genre.nom_genre ASC
+        ");
+
+        $genres = $requete->fetchAll();
+
+        return $genres;
+    }
+
+    public function insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $genre) {
+        $pdo = Connect::seConnecter();
+        $requeteFilmInfos = $pdo->prepare("
+        INSERT INTO film (titre_film, dateDeSortie_film, duree_film, synopsis_film, id_realisateur)
+        VALUES (:titre, :dateDeSortie, :duree, :synopsis, :id_realisateur)
+        ");
+        $requeteFilmInfos->execute([
+            "titre" => $titre,
+            "dateDeSortie" => $dateDeSortie,
+            "duree" => $duree,
+            "synopsis" => $synopsis,
+            "id_realisateur" => $realisateur
+
+        ]);
+        $lastIdFilm = $pdo->lastInsertId();
+
+        $requeteAddGenre = $pdo->prepare("
+            INSERT INTO film_genre (id_film, id_genre)
+            VALUES (:id_film, :id_genre)
+        ");
+        $requeteAddGenre->execute([
+            "id_film" => $lastIdFilm,
+            "id_genre" => $genre
+        ]);
+    }
 }

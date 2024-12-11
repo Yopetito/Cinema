@@ -22,6 +22,8 @@ ob_start();
     </tbody>
 </table>
 
+<button onclick="window.location.href='index.php?action=addActeur';">Ajouter un acteur</button>
+
 <?php
 
 $titre = "Liste des acteurs";

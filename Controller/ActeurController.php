@@ -23,4 +23,20 @@ class ActeurController {
         
         require "view\detailActeur.php";
     }
+
+    public function addActeur() {
+
+        if(isset($_POST["submit"])) {
+            $nomActeur = $_POST["nom"];
+            $prenomActeur = $_POST["prenom"];
+            $sexe = $_POST["sexe"];
+            $dateNaissance = $_POST["dateNaissance"];
+            
+            $ActeurManager = new ActeurManager();
+            $ActeurManager->insertActeur($nomActeur, $prenomActeur, $sexe, $dateNaissance);
+            header("Location: index.php?action=listActeurs");
+        }
+        require "view\addActeur.php";
+
+    }
 }

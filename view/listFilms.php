@@ -26,6 +26,8 @@ ob_start();
             <?php } ?>
     </tbody>
 </table>
+
+<button onclick="window.location.href='index.php?action=addFilm';">Ajouter un film</button>
 <?php
 
 $titre = "Liste des films";
