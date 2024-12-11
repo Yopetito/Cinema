@@ -7,9 +7,14 @@ if(!empty($films)) {
         <p> Date de sortie: <?= $film["dateSortie"]; ?></p>
         <p> Durée: <?= $film["duree"] ?></p>
         <p> Realisateur: <a href="index.php?action=detailRealisateur&id=<?= $film["id_realisateur"] ?>"><?= $film["realisateur"] ?></a></p>
-        <p> Genre: <a href="index.php?action=detailGenre&id=<?= $film["id_genre"] ?>"><?= $film["nom_genre"] ?></a></p>
+    <?php } ?> 
+    <p> Genre:</p>
+    <?php
+    foreach ($genres as $genre) { ?>
+        <ul>
+            <li><a href="index.php?action=detailGenre&id=<?= $genre["id_genre"] ?>"><?= $genre["nom_genre"] ?></a></li>
+        </ul>
     <?php } ?>
-
 
     <table  border = 1 class="uk-table uk-table-striped">
         <thead>

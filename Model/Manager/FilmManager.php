@@ -34,9 +34,7 @@ class FilmManager {
             f.titre_film, 
             DATE_FORMAT(f.dateDeSortie_film, '%d/%m/%Y') AS dateSortie, 
             DATE_FORMAT(SEC_TO_TIME(f.duree_film * 60), '%Hh%i') AS duree, 
-            CONCAT(p.nom, ' ', p.prenom) AS realisateur,
-            genre.nom_genre,
-            genre.id_genre
+            CONCAT(p.nom, ' ', p.prenom) AS realisateur
             FROM film f
 
             INNER JOIN realisateur
@@ -44,18 +42,30 @@ class FilmManager {
 
             INNER JOIN personne p
             ON realisateur.id_personne = p.id_personne
-
-            INNER JOIN film_genre
-            ON f.id_film = film_genre.id_film
-
-            INNER JOIN genre
-            ON film_genre.id_genre = genre.id_genre
             
             WHERE f.id_film = :id
         ");
         $requeteInfoFilm->execute(["id" => $id]);
         $films = $requeteInfoFilm->fetchAll();
         return $films;
+    }
+
+    public function getGenreFilms($id) {
+        $pdo = Connect::seConnecter();
+        $requeteFilmGenre = $pdo->prepare("
+            SELECT f.id_film,
+            genre.id_genre,
+            genre.nom_genre
+            FROM genre
+            INNER JOIN film_genre ON genre.id_genre = film_genre.id_genre
+            INNER JOIN film f ON film_genre.id_film = f.id_film            
+        
+            WHERE f.id_film = :id
+        
+        ");
+        $requeteFilmGenre->execute(["id" => $id]);
+        $genres = $requeteFilmGenre->fetchAll();
+        return $genres;
     }
 
     public function getFilmCasting($id) {

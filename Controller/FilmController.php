@@ -22,6 +22,9 @@ class FilmController {
         $detailFilmCasting = new FilmManager();
         $castings = $detailFilmCasting->getFilmCasting($id);
 
+        $detailFilmGenre = new FilmManager();
+        $genres = $detailFilmGenre->getGenreFilms($id);
+
 
         require "view/detailFilm.php";
     }
