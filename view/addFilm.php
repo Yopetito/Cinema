@@ -7,8 +7,8 @@ ob_start();
         <input type="text" id="titre" name="titre" placeholder = "Nom du film">
     </p>
     <p>
-        <label for="DateSortie">Date de sortie:</label>
-        <input type="date" id="DateSortie" name="DateSortie" placeholder="aaaa-jj-mm">
+        <label for="dateDeSortie">Date de sortie:</label>
+        <input type="date" name="dateDeSortie" id="dateDeSortie">
     </p>
     <p>
         <label for="duree">Duree:</label>
@@ -18,8 +18,8 @@ ob_start();
         <textarea id="synopsis" name="synopsis" placeholder="Texte ici"></textarea>
     </p>
 
-    <label for="realisateur">Realisateur:</label>
-    <select id="realisateur" name="id_realisateur">
+    <label for="id_realisateur">Realisateur:</label>
+    <select id="id_realisateur" name="id_realisateur">
         <?php foreach($realisateurs as $realisateur) { ?>
                 <option value="<?= $realisateur['id_realisateur'] ?>"><?=$realisateur['nomprenom']?></option>
         <?php } ?>
@@ -29,13 +29,13 @@ ob_start();
         <legend>Genres:</legend>
         <?php foreach($genres as $genre) { ?>
         <div>
-            <input type="checkbox" id="<?= $genre['id_genre'] ?>" name="<?= $genre['nom_genre'] ?>">
-            <label for="<?= $genre['id_genre'] ?>"><?= $genre['nom_genre'] ?></label>
+        <input type="checkbox" name="id_genre[]" value="<?= $genre['id_genre'] ?>" id="<?= $genre['id_genre'] ?>">
+        <label for="<?= $genre['id_genre'] ?>"><?= $genre['nom_genre'] ?></label>
         </div>
         <?php } ?>
     </fieldset>
     <p>              
-        <input type="submit" name="submit" value="Ajouter l'acteur">
+        <input type="submit" name="submit" value="Ajouter le film">
     </p>
 </form>
 <?php

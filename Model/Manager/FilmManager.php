@@ -121,7 +121,7 @@ class FilmManager {
         return $genres;
     }
 
-    public function insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $genre) {
+    public function insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $genres) {
         $pdo = Connect::seConnecter();
         $requeteFilmInfos = $pdo->prepare("
         INSERT INTO film (titre_film, dateDeSortie_film, duree_film, synopsis_film, id_realisateur)
@@ -133,7 +133,6 @@ class FilmManager {
             "duree" => $duree,
             "synopsis" => $synopsis,
             "id_realisateur" => $realisateur
-
         ]);
         $lastIdFilm = $pdo->lastInsertId();
 
@@ -141,9 +140,11 @@ class FilmManager {
             INSERT INTO film_genre (id_film, id_genre)
             VALUES (:id_film, :id_genre)
         ");
-        $requeteAddGenre->execute([
-            "id_film" => $lastIdFilm,
-            "id_genre" => $genre
-        ]);
+        foreach ($genres as $id_genre) {
+            $requeteAddGenre->execute([
+                "id_film" => $lastIdFilm,
+                "id_genre" => $id_genre
+            ]);
+        }
     }
 }
