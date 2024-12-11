@@ -40,7 +40,7 @@ class FilmController {
             $genre = $_POST['id_genre'];
 
             $filmManager = new FilmManager();
-            $filmManager->insertFilm($titre, $dateSortie, $duree, $synopsis, $realisateur, $genre);
+            $filmManager->insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $genre);
             header("Location: index.php?action=listFilms");
         }
         require "view/addFilm.php";
