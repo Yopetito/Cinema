@@ -24,13 +24,21 @@ class AccueilManager {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
-                p.id_personne,
-                a.id_acteur,
-                p.affiche_personne
-            FROM personne p
+            COUNT(DISTINCT c.id_film) AS Films,
+            p.id_personne,
+            a.id_acteur,
+            p.affiche_personne
+            FROM casting c
 
             INNER JOIN acteur a
-            ON p.id_personne = a.id_personne
+            ON c.id_acteur = a.id_acteur
+
+            INNER JOIN personne p
+            ON a.id_personne = p.id_personne
+
+            GROUP BY a.id_acteur
+
+            ORDER BY Films DESC
 
             LIMIT 4
         ");

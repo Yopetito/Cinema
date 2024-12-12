@@ -131,18 +131,19 @@ class FilmManager {
         return $genres;
     }
 
-    public function insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $genres) {
+    public function insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $afficheFilm, $genres) {
         $pdo = Connect::seConnecter();
         $requeteFilmInfos = $pdo->prepare("
-        INSERT INTO film (titre_film, dateDeSortie_film, duree_film, synopsis_film, id_realisateur)
-        VALUES (:titre, :dateDeSortie, :duree, :synopsis, :id_realisateur)
+        INSERT INTO film (titre_film, dateDeSortie_film, duree_film, synopsis_film, id_realisateur, affiche_film)
+        VALUES (:titre, :dateDeSortie, :duree, :synopsis, :id_realisateur, :afficheFilm)
         ");
         $requeteFilmInfos->execute([
             "titre" => $titre,
             "dateDeSortie" => $dateDeSortie,
             "duree" => $duree,
             "synopsis" => $synopsis,
-            "id_realisateur" => $realisateur
+            "id_realisateur" => $realisateur,
+            "afficheFilm" => $afficheFilm
         ]);
         $lastIdFilm = $pdo->lastInsertId();
 

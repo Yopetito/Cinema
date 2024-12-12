@@ -17,6 +17,10 @@ ob_start();
         <label for="synopsis">Synopsis:</label>
         <textarea id="synopsis" name="synopsis" placeholder="Texte ici"></textarea>
     </p>
+    </p>
+        <label for="affiche_film">URL de l'image:</label>
+        <input type="text" id="affiche_film" name="affiche_film" placeholder = "url de l'image">
+    </p>
 
     <label for="id_realisateur">Realisateur:</label>
     <select id="id_realisateur" name="id_realisateur">

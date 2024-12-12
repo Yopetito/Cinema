@@ -32,8 +32,8 @@ class ActeurController {
             $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_STRING);
             $dateNaissance = filter_input(INPUT_POST, "dateNaissance", FILTER_SANITIZE_STRING); //filter_validate_regex format (à regardé)
             if($nomActeur && $prenomActeur && $sexe && $dateNaissance) {
-                $nomActeur = $_POST["nom"];
-                $prenomActeur = $_POST["prenom"];
+                $nomActeur = $_POST["nomActeur"];
+                $prenomActeur = $_POST["prenomActeur"];
                 $sexe = $_POST["sexe"];
                 $dateNaissance = $_POST["dateNaissance"];
                 

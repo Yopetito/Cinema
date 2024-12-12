@@ -5,11 +5,11 @@ ob_start();
 <form action="index.php?action=addActeur" method="POST">
     <p>
         <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" placeholder = "Nom">
+        <input type="text" id="nomActeur" name="nomActeur" placeholder = "Nom">
     </p>
     <p>
         <label for="prenom">Prenom:</label>
-        <input type="text" id="prenom" name="prenom" placeholder="Prenom">
+        <input type="text" id="prenomActeur" name="prenomActeur" placeholder="Prenom">
     </p>
     <p>
         <label for="nom">Sexe:</label>

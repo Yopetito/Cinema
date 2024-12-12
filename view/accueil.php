@@ -25,7 +25,7 @@ ob_start();
     <div class="afficheacteurs">
        <?php foreach($acteurs as $acteur) { ?>
         <div class="acteur">
-            <img src="<?=$acteur['affiche_personne']?>" alt="">
+        <a href="index.php?action=detailFilm&id=<?=$acteur["id_acteur"]?>"><img src="<?=$acteur['affiche_personne']?>" alt=""></a>
             <p><?= $acteur['nomprenom']?></p>
         </div>
         <?php } ?>
