@@ -35,10 +35,9 @@ if(!empty($films)) {
     </table>
     <?php
     $titre = $film['titre_film'];
-    $titre_secondaire = $film['titre_film'];
 } else {
     $titre = "Liste de films";
-    $titre_secondaire = "Pas de film trouvé !!";
+    ?> <h2>Pas de film trouvé</h2> <?php
 }
 
 $contenu = ob_get_clean();

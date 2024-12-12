@@ -40,6 +40,5 @@ ob_start();
 </form>
 <?php
 $titre = "Ajout d'un film";
-$titre_secondaire = "Ajoutez un film";
 $contenu = ob_get_clean();
 require "view/template.php";

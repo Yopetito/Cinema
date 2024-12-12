@@ -26,10 +26,9 @@ if(!empty($realisateurs)) {
     </table>
     <?php
     $titre = $realisateur["nomprenom"];
-    $titre_secondaire = $realisateur["nomprenom"];
 } else {
     $titre = "Liste des realisateurs";
-    $titre_secondaire = "Pas de réalisateur trouvé!";
+    ?> <h2>Pas de réalisateur trouvé!</h2> <?php
 }
 $contenu = ob_get_clean();
 require "template.php";

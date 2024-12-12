@@ -25,7 +25,6 @@ ob_start();
 <?php
 
 $titre = "Liste des Genres";
-$titre_secondaire = "Liste des Genres";
 $contenu = ob_get_clean();
 require "template.php";
 ?>

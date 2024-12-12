@@ -23,10 +23,9 @@ if(!empty($persoFilms)) {
     </table>
     <?php
     $titre = $persoFilm["nom_personnage"];
-    $titre_secondaire = $persoFilm["nom_personnage"];
 } else {
     $titre = "Liste de personnages";
-    $titre_secondaire = "Pas de personnage trouvé !";
+    ?> <h2>Pas de personnage trouvé !</h2> <?php
 }
 $contenu = ob_get_clean();
 require "template.php";

@@ -22,10 +22,9 @@ if(!empty($films)) {
     </table>
     <?php
     $titre = $film["nom_genre"];
-    $titre_secondaire = $film["nom_genre"];
 } else {
     $titre = "Liste de films";
-    $titre_secondaire = "Pas de film trouvé dans cette catégorie";
+    ?> <h2>Pas de genre trouvé</h2> <?php
 }
 $contenu = ob_get_clean();
 require "template.php";

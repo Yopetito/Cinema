@@ -28,10 +28,9 @@ if(!empty($acteurs)) {
     </table>
     <?php
     $titre = $acteur["nomprenom"];
-    $titre_secondaire = $acteur["nomprenom"];
 } else {
     $titre = "Liste d'acteurs";
-    $titre_secondaire = "Pas d'acteur trouvé";
+    ?> <h2>Pas d'acteur trouvé</h2> <?php
 }
 
 $contenu = ob_get_clean();

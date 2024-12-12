@@ -18,11 +18,7 @@ class FilmController {
 
         $detailFilmManager = new FilmManager();
         $films = $detailFilmManager->getDetailFilms($id);
-
-        $detailFilmCasting = new FilmManager();
         $castings = $detailFilmCasting->getFilmCasting($id);
-
-        $detailFilmGenre = new FilmManager();
         $genres = $detailFilmGenre->getGenreFilms($id);
 
 
@@ -35,15 +31,24 @@ class FilmController {
         $genres = $filmManager->getGenres();
 
         if(isset($_POST['submit'])){
-            $titre = $_POST['titre'];
-            $dateDeSortie = $_POST['dateDeSortie'];
-            $duree = $_POST['duree'];
-            $synopsis = $_POST['synopsis'];
-            $realisateur = $_POST['id_realisateur'];
-            $genre = $_POST['id_genre'];
+            $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_STRING);
+            $dateDeSortie = filter_input(INPUT_POST, "dateDeSortie", FILTER_SANITIZE_STRING);   //filter_validate_regex à verifié
+            $duree = filter_input(INPUT_POST, "duree", FILTER_VALIDATE_INT);                    // que int
+            $synopsis = filter_input(INPUT_POST, "synopsis", FILTER_SANITIZE_STRING);
+            $realisateur = filter_input(INPUT_POST, "realisateur", FILTER_SANITIZE_STRING);
+            $genre = filter_input(INPUT_POST, "genre", FILTER_SANITIZE_STRING);
 
-            $filmManager = new FilmManager();
-            $filmManager->insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $genre);
+            if($titre && $dateDeSortie && $duree && $synopsis && $realisateur && $genre) {
+                $titre = $_POST['titre'];
+                $dateDeSortie = $_POST['dateDeSortie'];
+                $duree = $_POST['duree'];
+                $synopsis = $_POST['synopsis'];
+                $realisateur = $_POST['id_realisateur'];
+                $genre = $_POST['id_genre'];
+
+                $filmManager = new FilmManager();
+                $filmManager->insertFilm($titre, $dateDeSortie, $duree, $synopsis, $realisateur, $genre);
+            }
             header("Location: index.php?action=listFilms");
         }
         require "view/addFilm.php";

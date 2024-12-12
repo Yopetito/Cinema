@@ -24,7 +24,6 @@ ob_start();
 <?php
 
 $titre = "Liste des Personnages";
-$titre_secondaire = "Liste des Personnages";
 $contenu = ob_get_clean();
 require "template.php";
 ?>
