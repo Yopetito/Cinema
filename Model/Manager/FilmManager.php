@@ -11,7 +11,8 @@ class FilmManager {
             SELECT f.id_film, f.titre_film, 
 	        DATE_FORMAT(f.dateDeSortie_film, '%d/%m/%Y') AS Date_de_sortie,
 	        DATE_FORMAT(SEC_TO_TIME(f.duree_film * 60),'%Hh%i') AS Duration,
-	        CONCAT(p.prenom, ' ', p.nom) AS Createur
+	        CONCAT(p.prenom, ' ', p.nom) AS Createur,
+            f.affiche_film
             FROM film f
 
             INNER JOIN realisateur r

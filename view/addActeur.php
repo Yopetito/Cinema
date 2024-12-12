@@ -11,9 +11,13 @@ ob_start();
         <label for="prenom">Prenom:</label>
         <input type="text" id="prenomActeur" name="prenomActeur" placeholder="Prenom">
     </p>
-    <p>
-        <label for="nom">Sexe:</label>
-        <input type="text" id="sexe" name="sexe" placeholder="Homme/Femme">
+    <p>Sexe:</p>
+        <p>
+            <label for="sexe">Homme:</label>
+            <input type="radio" id="sexe_h" name="sexe" value="Homme">
+            <label for="sexe">Femme:</label>
+            <input type="radio" id="sexe_f" name="sexe" value="Femme">
+        </p>
     </p>
         <label for="dateNaissance">Date de naissance:</label>
         <input type="text" id="dateNaissance" name="dateNaissance" placeholder="aaaa/jj/mm">
@@ -23,6 +27,7 @@ ob_start();
     </p>
 </form>
 
-<?
+<?php
+$titre = "Ajoutez un acteur";
 $contenu = ob_get_clean();
-require "view/template.php";
+require "view/template.php"; 

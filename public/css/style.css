@@ -5,6 +5,11 @@
     --primary-font: "Krub", sans-serif;
 }
 
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #e7e1e1;
+}
 /* ===========================================NAVBAR======================================== */
 
 .navbar {
@@ -155,3 +160,59 @@
     font-family: var(--primary-font);
     text-align: center;
 }
+
+
+/* ============================================== */
+
+.banierefilm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5%;
+    background: var(--degrade-titres);
+    width: 100%;
+    margin-top: 100px;
+}
+
+.banierefilm p {
+    font-family: var(--primary-font);
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.btn-ajouter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+
+}
+
+.btn-ajouter button {
+    padding: 15px;
+    border-radius: 25px;
+}
+
+.listfilms {
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(5, 200px);
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 100px;
+    padding: 0% 10%;
+}
+
+.listfilms img {
+    height: 260px;
+    width: 200px;
+}
+
+.descriptionfilm p {
+    font-family: var(--primary-font);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+

@@ -41,6 +41,7 @@ class ActeurController {
                 $ActeurManager->insertActeur($nomActeur, $prenomActeur, $sexe, $dateNaissance);
             }
             header("Location: index.php?action=listActeurs");
+            exit;
         }
         require "view\addActeur.php";
 
