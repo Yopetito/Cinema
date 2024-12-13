@@ -15,21 +15,21 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for cinema
+-- Dumping database structure for cinema_yofer
 CREATE DATABASE IF NOT EXISTS `cinema_yofer` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `cinema_yofer`;
 
--- Dumping structure for table cinema.acteur
+-- Dumping structure for table cinema_yofer.acteur
 CREATE TABLE IF NOT EXISTS `acteur` (
   `id_acteur` int NOT NULL AUTO_INCREMENT,
   `id_personne` int NOT NULL,
   PRIMARY KEY (`id_acteur`),
   KEY `acteur_ibfk_1` (`id_personne`),
   CONSTRAINT `acteur_ibfk_1` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cinema.acteur: ~12 rows (approximately)
-INSERT INTO `acteur` (`id_acteur`, `id_personne`) VALUES
+-- Dumping data for table cinema_yofer.acteur: ~12 rows (approximately)
+REPLACE INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(15, 1),
 	(1, 4),
 	(2, 5),
@@ -43,7 +43,7 @@ INSERT INTO `acteur` (`id_acteur`, `id_personne`) VALUES
 	(10, 13),
 	(14, 20);
 
--- Dumping structure for table cinema.casting
+-- Dumping structure for table cinema_yofer.casting
 CREATE TABLE IF NOT EXISTS `casting` (
   `id_film` int NOT NULL,
   `id_personnage` int NOT NULL,
@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS `casting` (
   CONSTRAINT `casting_ibfk_3` FOREIGN KEY (`id_acteur`) REFERENCES `acteur` (`id_acteur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cinema.casting: ~11 rows (approximately)
-INSERT INTO `casting` (`id_film`, `id_personnage`, `id_acteur`) VALUES
+-- Dumping data for table cinema_yofer.casting: ~11 rows (approximately)
+REPLACE INTO `casting` (`id_film`, `id_personnage`, `id_acteur`) VALUES
 	(1, 1, 1),
 	(2, 2, 3),
 	(3, 3, 2),
@@ -70,7 +70,7 @@ INSERT INTO `casting` (`id_film`, `id_personnage`, `id_acteur`) VALUES
 	(10, 10, 14),
 	(1, 15, 2);
 
--- Dumping structure for table cinema.film
+-- Dumping structure for table cinema_yofer.film
 CREATE TABLE IF NOT EXISTS `film` (
   `id_film` int NOT NULL AUTO_INCREMENT,
   `titre_film` varchar(50) NOT NULL,
@@ -79,25 +79,26 @@ CREATE TABLE IF NOT EXISTS `film` (
   `synopsis_film` text,
   `note_film` decimal(15,1) DEFAULT NULL,
   `id_realisateur` int NOT NULL,
+  `affiche_film` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_film`),
   KEY `film_ibfk_1` (`id_realisateur`),
   CONSTRAINT `film_ibfk_1` FOREIGN KEY (`id_realisateur`) REFERENCES `realisateur` (`id_realisateur`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cinema.film: ~10 rows (approximately)
-INSERT INTO `film` (`id_film`, `titre_film`, `dateDeSortie_film`, `duree_film`, `synopsis_film`, `note_film`, `id_realisateur`) VALUES
-	(1, 'Inception', '2010-07-16', 148, 'Un thriller sur les rêves partagés.', 9.0, 1),
-	(2, 'Interstellar', '2014-11-07', 169, 'Un voyage spatial pour sauver l\'humanité.', 8.6, 1),
-	(3, 'Dune', '2021-10-22', 155, 'Une épopée dans le désert.', 8.3, 2),
-	(4, 'Blade Runner 2049', '2022-10-06', 164, 'Suite du classique cyberpunk.', 8.0, 2),
-	(5, 'The Dark Knight', '2008-07-18', 152, 'Le combat de Batman contre le Joker.', 9.0, 1),
-	(6, 'Shutter Island', '2010-02-19', 138, 'Un thriller psychologique.', 8.1, 1),
-	(7, 'The Martian', '2015-10-02', 144, 'Un astronaute lutte pour sa survie sur Mars.', 8.0, 3),
-	(8, 'Catch Me If You Can', '2002-12-25', 141, 'L\'histoire d\'un escroc recherché par le FBI.', 8.1, 3),
-	(9, 'Saving Private Ryan', '1998-07-24', 169, 'Pendant la Seconde Guerre mondiale, un groupe de soldats part sauver un homme.', 8.6, 3),
-	(10, 'Memento', '2000-10-11', 113, 'Un homme cherche à venger la mort de sa femme en utilisant la mémoire à court terme.', 8.4, 1);
+-- Dumping data for table cinema_yofer.film: ~10 rows (approximately)
+REPLACE INTO `film` (`id_film`, `titre_film`, `dateDeSortie_film`, `duree_film`, `synopsis_film`, `note_film`, `id_realisateur`, `affiche_film`) VALUES
+	(1, 'Inception', '2010-07-16', 148, 'Un thriller sur les rêves partagés.', 9.0, 1, NULL),
+	(2, 'Interstellar', '2014-11-07', 169, 'Un voyage spatial pour sauver l\'humanité.', 8.6, 1, NULL),
+	(3, 'Dune', '2021-10-22', 155, 'Une épopée dans le désert.', 8.3, 2, NULL),
+	(4, 'Blade Runner 2049', '2022-10-06', 164, 'Suite du classique cyberpunk.', 8.0, 2, NULL),
+	(5, 'The Dark Knight', '2008-07-18', 152, 'Le combat de Batman contre le Joker.', 9.0, 1, NULL),
+	(6, 'Shutter Island', '2010-02-19', 138, 'Un thriller psychologique.', 8.1, 1, NULL),
+	(7, 'The Martian', '2015-10-02', 144, 'Un astronaute lutte pour sa survie sur Mars.', 8.0, 3, NULL),
+	(8, 'Catch Me If You Can', '2002-12-25', 141, 'L\'histoire d\'un escroc recherché par le FBI.', 8.1, 3, NULL),
+	(9, 'Saving Private Ryan', '1998-07-24', 169, 'Pendant la Seconde Guerre mondiale, un groupe de soldats part sauver un homme.', 8.6, 3, NULL),
+	(10, 'Memento', '2000-10-11', 113, 'Un homme cherche à venger la mort de sa femme en utilisant la mémoire à court terme.', 8.4, 1, NULL);
 
--- Dumping structure for table cinema.film_genre
+-- Dumping structure for table cinema_yofer.film_genre
 CREATE TABLE IF NOT EXISTS `film_genre` (
   `id_film` int NOT NULL,
   `id_genre` int NOT NULL,
@@ -107,8 +108,8 @@ CREATE TABLE IF NOT EXISTS `film_genre` (
   CONSTRAINT `film_genre_ibfk_2` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_genre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cinema.film_genre: ~10 rows (approximately)
-INSERT INTO `film_genre` (`id_film`, `id_genre`) VALUES
+-- Dumping data for table cinema_yofer.film_genre: ~10 rows (approximately)
+REPLACE INTO `film_genre` (`id_film`, `id_genre`) VALUES
 	(1, 1),
 	(2, 1),
 	(3, 1),
@@ -120,71 +121,74 @@ INSERT INTO `film_genre` (`id_film`, `id_genre`) VALUES
 	(10, 3),
 	(9, 4);
 
--- Dumping structure for table cinema.genre
+-- Dumping structure for table cinema_yofer.genre
 CREATE TABLE IF NOT EXISTS `genre` (
   `id_genre` int NOT NULL AUTO_INCREMENT,
   `nom_genre` varchar(50) NOT NULL,
+  `affiche_genre` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_genre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cinema.genre: ~5 rows (approximately)
-INSERT INTO `genre` (`id_genre`, `nom_genre`) VALUES
-	(1, 'Science-fiction'),
-	(2, 'Action'),
-	(3, 'Thriller'),
-	(4, 'Drame'),
-	(5, 'Aventure');
+-- Dumping data for table cinema_yofer.genre: ~5 rows (approximately)
+REPLACE INTO `genre` (`id_genre`, `nom_genre`, `affiche_genre`) VALUES
+	(1, 'Science-fiction', NULL),
+	(2, 'Action', NULL),
+	(3, 'Thriller', NULL),
+	(4, 'Drame', NULL),
+	(5, 'Aventure', NULL);
 
--- Dumping structure for table cinema.personnages
-CREATE TABLE IF NOT EXISTS `personnages` (
+-- Dumping structure for table cinema_yofer.personnage
+CREATE TABLE IF NOT EXISTS `personnage` (
   `id_personnage` int NOT NULL AUTO_INCREMENT,
   `nom_personnage` varchar(50) NOT NULL,
+  `affiche_personnage` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_personnage`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cinema.personnages: ~12 rows (approximately)
-INSERT INTO `personnages` (`id_personnage`, `nom_personnage`) VALUES
-	(1, 'Cobb'),
-	(2, 'Cooper'),
-	(3, 'Paul Atreides'),
-	(4, 'K'),
-	(5, 'Bruce Wayne'),
-	(6, 'Teddy Daniels'),
-	(7, 'Mark Watney'),
-	(8, 'Frank Abagnale Jr.'),
-	(9, 'Captain Miller'),
-	(10, 'Leonard Shelby'),
-	(15, 'Eames'),
-	(16, 'Tinkiwinki');
+-- Dumping data for table cinema_yofer.personnage: ~12 rows (approximately)
+REPLACE INTO `personnage` (`id_personnage`, `nom_personnage`, `affiche_personnage`) VALUES
+	(1, 'Cobb', NULL),
+	(2, 'Cooper', NULL),
+	(3, 'Paul Atreides', NULL),
+	(4, 'K', NULL),
+	(5, 'Bruce Wayne', NULL),
+	(6, 'Teddy Daniels', NULL),
+	(7, 'Mark Watney', NULL),
+	(8, 'Frank Abagnale Jr.', NULL),
+	(9, 'Captain Miller', NULL),
+	(10, 'Leonard Shelby', NULL),
+	(15, 'Eames', NULL),
+	(16, 'Tinkiwinki', NULL);
 
--- Dumping structure for table cinema.personne
+-- Dumping structure for table cinema_yofer.personne
 CREATE TABLE IF NOT EXISTS `personne` (
   `id_personne` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `sexe` varchar(50) NOT NULL,
   `dateNaissance` date DEFAULT NULL,
+  `affiche_personne` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_personne`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cinema.personne: ~14 rows (approximately)
-INSERT INTO `personne` (`id_personne`, `nom`, `prenom`, `sexe`, `dateNaissance`) VALUES
-	(1, 'Nolan', 'Christopher', 'Homme', '1970-07-30'),
-	(2, 'Villeneuve', 'Denis', 'Homme', '1967-10-03'),
-	(3, 'Spielberg', 'Steven', 'Homme', '1946-12-18'),
-	(4, 'DiCaprio', 'Leonardo', 'Homme', '1974-11-11'),
-	(5, 'Hardy', 'Tom', 'Homme', '1977-09-15'),
-	(6, 'McConaughey', 'Matthew', 'Homme', '1969-11-04'),
-	(7, 'Hathaway', 'Anne', 'Femme', '1982-11-12'),
-	(8, 'Ford', 'Harrison', 'Homme', '1942-07-13'),
-	(9, 'Bale', 'Christian', 'Homme', '1974-01-30'),
-	(10, 'Pattinson', 'Robert', 'Homme', '1986-05-13'),
-	(11, 'Gadot', 'Gal', 'Femme', '1985-04-30'),
-	(12, 'Ledger', 'Heath', 'Homme', '1979-04-04'),
-	(13, 'Theron', 'Charlize', 'Femme', '1975-08-07'),
-	(20, 'Pearce', 'Guy', 'Homme', '1967-10-05');
+-- Dumping data for table cinema_yofer.personne: ~14 rows (approximately)
+REPLACE INTO `personne` (`id_personne`, `nom`, `prenom`, `sexe`, `dateNaissance`, `affiche_personne`) VALUES
+	(1, 'Nolan', 'Christopher', 'Homme', '1970-07-30', NULL),
+	(2, 'Villeneuve', 'Denis', 'Homme', '1967-10-03', NULL),
+	(3, 'Spielberg', 'Steven', 'Homme', '1946-12-18', NULL),
+	(4, 'DiCaprio', 'Leonardo', 'Homme', '1974-11-11', NULL),
+	(5, 'Hardy', 'Tom', 'Homme', '1977-09-15', NULL),
+	(6, 'McConaughey', 'Matthew', 'Homme', '1969-11-04', NULL),
+	(7, 'Hathaway', 'Anne', 'Femme', '1982-11-12', NULL),
+	(8, 'Ford', 'Harrison', 'Homme', '1942-07-13', NULL),
+	(9, 'Bale', 'Christian', 'Homme', '1974-01-30', NULL),
+	(10, 'Pattinson', 'Robert', 'Homme', '1986-05-13', NULL),
+	(11, 'Gadot', 'Gal', 'Femme', '1985-04-30', NULL),
+	(12, 'Ledger', 'Heath', 'Homme', '1979-04-04', NULL),
+	(13, 'Theron', 'Charlize', 'Femme', '1975-08-07', NULL),
+	(20, 'Pearce', 'Guy', 'Homme', '1967-10-05', NULL);
 
--- Dumping structure for table cinema.realisateur
+-- Dumping structure for table cinema_yofer.realisateur
 CREATE TABLE IF NOT EXISTS `realisateur` (
   `id_realisateur` int NOT NULL AUTO_INCREMENT,
   `id_personne` int NOT NULL,
@@ -193,8 +197,8 @@ CREATE TABLE IF NOT EXISTS `realisateur` (
   CONSTRAINT `realisateur_ibfk_1` FOREIGN KEY (`id_personne`) REFERENCES `personne` (`id_personne`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table cinema.realisateur: ~3 rows (approximately)
-INSERT INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
+-- Dumping data for table cinema_yofer.realisateur: ~3 rows (approximately)
+REPLACE INTO `realisateur` (`id_realisateur`, `id_personne`) VALUES
 	(1, 1),
 	(2, 2),
 	(3, 3);

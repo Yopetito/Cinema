@@ -9,7 +9,7 @@ class PersonnageManager {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT personnage.id_personnage, personnage.nom_personnage,
-            affiche_personnage
+            personnage.affiche_personnage
             FROM personnage
         ");
 
