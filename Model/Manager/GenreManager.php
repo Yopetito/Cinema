@@ -8,7 +8,7 @@ class GenreManager {
     public function getGenres() {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-            SELECT genre.id_genre, genre.nom_genre
+            SELECT genre.id_genre, genre.nom_genre, genre.affiche_genre
             FROM genre
 
             ORDER BY genre.nom_genre ASC

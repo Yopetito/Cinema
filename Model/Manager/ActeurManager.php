@@ -9,7 +9,8 @@ Class ActeurManager {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT a.id_acteur,
-            CONCAT(p.nom, ' ', p.prenom) AS nom_prenom
+            CONCAT(p.prenom, ' ', p.nom) AS nom_prenom,
+            p.affiche_personne
             FROM personne p
 
             INNER JOIN acteur a

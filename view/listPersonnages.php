@@ -2,24 +2,25 @@
 ob_start(); 
 
 ?>
-
-<p class="uk-label uk-label-warning">Il y a <?= count($personnages) ?> personnages</p>
-
-<table class="uk-table uk-table-striped">
-    <thead>
-        <tr>
-            <th>NOM DU PERSONNAGE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            foreach($personnages as $personnage) { ?>
-            <tr>
-                <td><a href="index.php?action=detailPersonnage&id=<?= $personnage["id_personnage"] ?>"><?= $personnage["nom_personnage"] ?></a></td>
-            </tr>
-            <?php } ?>
-    </tbody>
-</table>
+<div class="sectionlist">
+    <div class="baniere">
+        <p class="titrebaniere">PERSONNAGES</p>
+    </div>
+    <div class="btn-ajouter">
+        <button onclick="window.location.href='index.php?action=addPersonnage';">Ajouter un acteur (NON FONCTIONNEL)</button>
+    </div>
+    <div class="sectionaffiche">
+    <?php
+       foreach($personnages as $personnage) { ?>
+            <div class="affiche">
+                <a href="index.php?action=detailPersonnage&id=<?= $personnage["id_personnage"] ?>"><img src="<?= $personnage["affiche_personnage"] ?>" alt=""></a>
+                <div class="description">
+                    <p><?= $personnage["nom_personnage"] ?></p>
+                </div>
+            </div>
+    <?php } ?>
+    </div>
+</div>
 
 <?php
 

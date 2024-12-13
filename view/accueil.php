@@ -5,32 +5,46 @@ ob_start();
     <img src="public/img/Hollywood.jpg" alt="">
     <p>Toutes les informations <br> du cinéma en un click</p>
 </div>
-<div class="dernierfilms">
-    <div class="banierefilms">
+
+<!-- =========FILMS========= -->
+
+<div class="sectionafficheaccueil">
+    <div class="sectionbaniere">
         <p>Derniers films ajoutés :</p>
     </div>
-    <div class="affichefilms">
-        <?php foreach($films as $film) { ?>
-        <div class="films">
+    <div class="blockaffiche">
+        <div class="block">
+            <?php foreach($films as $film) { ?>
+            <div class="affiche">
             <a href="index.php?action=detailFilm&id=<?=$film["id_film"]?>"><img src="<?=$film['affiche_film']?>" alt=""></a>
             <p><?=$film['titre_film']?></p>
-        </div>
+            </div>
         <?php } ?>
+        </div>
     </div>
 </div>
-<div class="topacteurs">
-    <div class="baniereacteurs">
+
+
+<!-- =========ACTEURS========= -->
+
+<div class="sectionafficheaccueil">
+    <div class="sectionbaniere">
         <p>Acteurs avec le plus de films :</p>
     </div>
-    <div class="afficheacteurs">
-       <?php foreach($acteurs as $acteur) { ?>
-        <div class="acteur">
-        <a href="index.php?action=detailFilm&id=<?=$acteur["id_acteur"]?>"><img src="<?=$acteur['affiche_personne']?>" alt=""></a>
+    <div class="blockaffiche">
+        <div class="block">
+        <?php foreach($acteurs as $acteur) { ?>
+            <div class="affiche">
+            <a href="index.php?action=detailFilm&id=<?=$acteur["id_acteur"]?>"><img src="<?=$acteur['affiche_personne']?>" alt=""></a>
             <p><?= $acteur['nomprenom']?></p>
-        </div>
+            </div>
         <?php } ?>
+        </div>
     </div>
 </div>
+
+
+
 <?php
 $titre = "Accueil";
 $contenu = ob_get_clean();

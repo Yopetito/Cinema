@@ -9,7 +9,8 @@ class RealisateurManager {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
             SELECT r.id_realisateur, 
-            CONCAT(p.prenom, ' ', p.nom) AS nomprenom
+            CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
+            p.affiche_personne
             FROM personne p
 
             INNER JOIN realisateur r
