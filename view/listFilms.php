@@ -11,13 +11,12 @@ ob_start();
     <div class="sectionaffiche">
     <?php
         foreach($films as $film) { ?>
-            <div class="affiche">
+            <div class="affiche_list">
                 <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><img src="<?= $film["affiche_film"] ?>" alt=""></a>
                 <div class="description">
                     <p><?= $film["titre_film"] ?></p>
                     <p><?= $film["Date_de_sortie"] ?></p>
                     <p><?= $film["Duration"] ?></p>
-                    <p><?= $film["Createur"] ?></p>
                 </div>
             </div>
     <?php } ?>

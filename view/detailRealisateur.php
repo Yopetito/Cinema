@@ -1,34 +1,38 @@
 <?php
 ob_start();
-
 if(!empty($realisateurs)) {
     foreach($realisateurs as $realisateur){ ?>
-        <p> Sexe:  <?= $realisateur["sexe"]; ?></p>
-        <p> Date de naissance: <?= $realisateur["dateNaissance"] ?></p>
-        <?php } ?>
+        <div class="baniere">
+            <h2> <?= $realisateur['nomprenom'] ?></h2>
+        </div>
+        <div class="afficheDetail">
+            <img src="<?= $realisateur['affiche_personne'] ?>" alt="">
+            <div class="renseignement">
+                <p> Sexe: <?= $realisateur["sexe"]; ?></p>
+                <p> Date de naissance: <?= $realisateur["dateNaissance"] ?></p>
+            </div>
+        </div>
+    <?php } ?>
 
-    <table  border = 1 class="uk-table uk-table-striped">
-        <thead>
-            <tr>
-                <th>FILMS</th>
-                <th>ANNEE</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach($films as $film) { ?>
-                <tr>
-                    <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre_film"] ?></a></td>
-                    <td><?= $film["dateSortie"] ?></td>
-                </tr>
-            <?php } ?>       
-        </tbody>
-    </table>
+    <div class="baniere">
+            <p>Films realisés:</p>
+    </div>
+    <div class="sectionaffiche">
+    <?php
+        foreach($films as $film) { ?>
+            <div class="affiche_list">
+                <p><a href="index.php?action=listFilms&id=<?= $film["id_film"] ?>"><img src="<?= $film['affiche_film'] ?>" alt=""></a></p>
+                <div class="description">
+                    <p>Date de sortie: <?= $film['dateSortie'] ?></p>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
     <?php
     $titre = $realisateur["nomprenom"];
 } else {
-    $titre = "Liste des realisateurs";
-    ?> <h2>Pas de réalisateur trouvé!</h2> <?php
+    $titre = "Liste d'acteurs";
+    ?> <h2>Pas d'acteur trouvé</h2> <?php
 }
 $contenu = ob_get_clean();
 require "template.php";

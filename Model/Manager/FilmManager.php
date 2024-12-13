@@ -28,14 +28,19 @@ class FilmManager {
         return $films;
     }
 
+    // =============== DetailFilm.php===============================
+
     public function getDetailFilms($id) {
         $pdo = Connect::seConnecter();
         $requeteInfoFilm = $pdo->prepare("
             SELECT realisateur.id_realisateur,
-            f.titre_film, 
+            f.titre_film,
+            f.affiche_film,
+            f.synopsis_film,
             DATE_FORMAT(f.dateDeSortie_film, '%d/%m/%Y') AS dateSortie, 
             DATE_FORMAT(SEC_TO_TIME(f.duree_film * 60), '%Hh%i') AS duree, 
-            CONCAT(p.nom, ' ', p.prenom) AS realisateur
+            CONCAT(p.nom, ' ', p.prenom) AS realisateur,
+            p.affiche_personne
             FROM film f
 
             INNER JOIN realisateur
@@ -73,9 +78,11 @@ class FilmManager {
         $pdo = Connect::seConnecter();
         $requeteCasting = $pdo->prepare("
             SELECT a.id_acteur,
+            p.affiche_personne,
             personnage.id_personnage, 
             CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
-            personnage.nom_personnage
+            personnage.nom_personnage,
+            personnage.affiche_personnage
             FROM film f
 
             INNER JOIN casting c
@@ -99,6 +106,8 @@ class FilmManager {
 
         return $castings;
     }
+
+    // ===================AddFilm.php========================
 
     public function getRealisateurs() {
         $pdo = Connect::seConnecter();

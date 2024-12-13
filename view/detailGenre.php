@@ -1,26 +1,21 @@
 <?php
 ob_start();
 
-if(!empty($films)) {
-    ?>
-    <table border = 1 class="uk-table uk-table-striped">
-        <thead>
-            <tr>
-                <th>FILMS DE CE GENRE</th>
-                <th>ANNEE</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach($films as $film) { ?>
-                <tr>
-                    <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><?= $film["titre_film"] ?></a></td>
-                    <td><?= $film["dateSortie"] ?></td>
-                </tr>
-            <?php } ?>       
-        </tbody>
-    </table>
-    <?php
+if(!empty($films)) { ?>
+    <div class="baniere">
+        <h2>Dans ce genre:</h2>
+    </div>
+    <div class="sectionaffiche">
+    <?php foreach($films as $film) { ?>
+        <div class="afficheDetail">
+            <div class="description">
+                <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><img src="<?= $film["affiche_film"] ?>" alt=""></a></td>
+                <p><?= $film["dateSortie"] ?></p>
+            </div>
+        </div>
+            <?php } ?>
+    </div>
+<?php
     $titre = $film["nom_genre"];
 } else {
     $titre = "Liste de films";

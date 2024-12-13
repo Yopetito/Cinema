@@ -26,6 +26,7 @@ class GenreManager {
             g.nom_genre, 
             film.titre_film, 
             film.id_film,
+            film.affiche_film,
             DATE_FORMAT(film.dateDeSortie_film, '%d/%m/%Y') AS dateSortie
             FROM genre g
 

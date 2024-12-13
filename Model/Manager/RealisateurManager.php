@@ -30,6 +30,7 @@ class RealisateurManager {
             SELECT r.id_realisateur, 
             CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
             p.sexe,
+            p.affiche_personne,
             DATE_FORMAT(p.dateNaissance, '%d/%m/%Y') AS dateNaissance
             FROM personne p
 
@@ -48,12 +49,17 @@ class RealisateurManager {
         $requeteRealisateurFilm = $pdo->prepare("
             SELECT r.id_realisateur, 
             f.id_film,
+            CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
             f.titre_film,
+            f.affiche_film,
             DATE_FORMAT(f.dateDeSortie_film, '%d/%m/%Y') AS dateSortie
             FROM film f
 
             INNER JOIN realisateur r
             ON f.id_realisateur = r.id_realisateur
+
+            INNER JOIN personne p
+            ON r.id_personne = p.id_personne
 
             WHERE r.id_realisateur = :id
 

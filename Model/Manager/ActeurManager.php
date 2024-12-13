@@ -29,6 +29,7 @@ Class ActeurManager {
             SELECT acteur.id_acteur, 
             CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
             p.sexe,
+            p.affiche_personne,
             DATE_FORMAT(p.dateNaissance, '%d/%m/%Y') AS dateNaissance
             FROM personne p
 
@@ -48,6 +49,7 @@ Class ActeurManager {
             SELECT acteur.id_acteur, 
             film.id_film, 
             film.titre_film,
+            film.affiche_film,
             DATE_FORMAT(film.dateDeSortie_film, '%d/%m/%Y') AS dateSortie,
             personnage.id_personnage,
             personnage.nom_personnage

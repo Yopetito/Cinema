@@ -3,7 +3,10 @@ ob_start();
 
 
 if(!empty($persoFilms)) {
-?>
+    foreach($persoFilms as $persoFilm){ ?>
+        <div class="baniere">
+            <h2> <?= $persoFilm['nom_personnage'] ?></h2>
+        </div>
     <table  border = 1 class="uk-table uk-table-striped">
         <thead>
             <tr>
@@ -21,7 +24,7 @@ if(!empty($persoFilms)) {
             <?php } ?>       
         </tbody>
     </table>
-    <?php
+    <?php }
     $titre = $persoFilm["nom_personnage"];
 } else {
     $titre = "Liste de personnages";

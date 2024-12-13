@@ -12,7 +12,7 @@ ob_start();
     <div class="sectionaffiche">
     <?php
        foreach($acteurs as $acteur) { ?>
-            <div class="affiche">
+            <div class="affiche_list">
                 <a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><img src="<?= $acteur["affiche_personne"] ?>" alt=""></a>
                 <div class="description">
                     <p><?= $acteur["nom_prenom"] ?></p>
