@@ -250,30 +250,29 @@ h2 {
 .personnages-container {
     display: flex;
     flex-direction: column; /* Permet de passer à une nouvelle ligne si l'espace est insuffisant */
-    gap: 20px; /* Espace entre les cartes */
-    justify-content: center; /* Centre les cartes */
+    gap: 20px;
+    justify-content: center;
     align-items: center;
     margin: 20px auto;
 }
 
 .personnage-item {
-    display: flex; /* Arrange les éléments acteur et film en ligne */
-    flex-direction: row; /* Horizontal par défaut */
-    align-items: center; /* Aligne verticalement l'acteur et le film */
-    justify-content: space-between; /* Espace entre l'acteur et le film */
-    width: 600px; /* Largeur de chaque carte */
-    border: 1px solid #ddd; /* Optionnel : bordure pour démarquer */
-    border-radius: 8px; /* Optionnel : coins arrondis */
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between;
+    width: 600px; 
+    border: 1px solid #ddd; /
+    border-radius: 8px;
     padding: 10px;
-    background-color: #f9f9f9; /* Optionnel : fond clair */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel : ombre */
+    background-color: #f9f9f9;
 }
 
 .personnage-item img {
-    width: 150px; /* Taille des images */
+    width: 150px; 
     height: auto;
-    border-radius: 8px; /* Optionnel : coins arrondis */
-    margin-right: 10px; /* Espace entre l'image et le texte */
+    border-radius: 8px; 
+    margin-right: 10px;
 }
 
 .personne, .film {
@@ -282,7 +281,7 @@ h2 {
 }
 
 .nom-prenom, .titre-film {
-    margin-top: 10px; /* Espace au-dessus du texte */
+    margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
     color: #000000;
