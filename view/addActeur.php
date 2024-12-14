@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<form action="index.php?action=addActeur" method="POST">
+<form class="add_acteur" action="index.php?action=addActeur" method="POST">
     <p>
         <label for="nom">Nom:</label>
         <input type="text" id="nomActeur" name="nomActeur" placeholder = "Nom">
@@ -12,7 +12,7 @@ ob_start();
         <input type="text" id="prenomActeur" name="prenomActeur" placeholder="Prenom">
     </p>
     <p>Sexe:</p>
-        <p>
+        <p class="radio_section">
             <label for="sexe">Homme:</label>
             <input type="radio" id="sexe_h" name="sexe" value="Homme">
             <label for="sexe">Femme:</label>
@@ -23,7 +23,7 @@ ob_start();
         <input type="date" id="dateNaissance" name="dateNaissance" placeholder="aaaa/jj/mm">
     </p>
     <p>              
-        <input type="submit" name="submit" value="Ajouter l'acteur">
+        <input class="input_ajouter" type="submit" name="submit" value="Ajouter l'acteur">
     </p>
 </form>
 
