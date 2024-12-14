@@ -1,10 +1,14 @@
 <?php 
 ob_start(); 
 ?>
+<div class="logo_responsive">
+    <img src="public/img/logo_cinelan.png" alt="">
+</div>
 <div class="list_container">
     <div class="baniere">
-        <p class="titrebaniere">FILMS - <?= count($films) ?> En stock!</p>
+        <p class="titrebaniere">FILMS</p>
     </div>
+
     <div class="btn-ajouter">
         <button onclick="window.location.href='index.php?action=addFilm';">Ajouter un film</button>
     </div>

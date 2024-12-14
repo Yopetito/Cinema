@@ -2,6 +2,9 @@
 ob_start(); 
 
 ?>
+<div class="logo_responsive">
+    <img src="public/img/logo_cinelan.png" alt="">
+</div>
 <div class="list_container">
     <div class="baniere">
         <p class="titrebaniere">ACTEURS</p>

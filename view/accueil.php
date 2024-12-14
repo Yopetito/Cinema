@@ -6,6 +6,7 @@ ob_start();
     <p>Toutes les informations <br> du cinéma en un click</p>
 </div>
 
+
 <!-- =========FILMS========= -->
 
 <div class="sectionafficheaccueil">

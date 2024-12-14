@@ -2,10 +2,12 @@
 ob_start(); 
 
 ?>
-
+<div class="logo_responsive">
+    <img src="public/img/logo_cinelan.png" alt="">
+</div>
 <div class="list_container">
     <div class="baniere">
-        <p>ACTEURS</p>
+        <p>REALISATEURS</p>
     </div>
     <div class="btn-ajouter">
         <button onclick="window.location.href='index.php?action=addRealisateur';">Ajouter un realisateur (NON FONCTIONNEL)</button>

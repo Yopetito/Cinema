@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/style_responsive.css">
     <title><?= $titre ?></title>
 </head>
 <body>
+<div class="burger-menu" id="burger_menu" onclick="showResponsiveMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
     <div id="wrapper" class="uk-container uk-container-expand">
         <main>
             <div id="contenue">
-            <nav class="navbar">
+
+            <nav class="navbar" id="nav_menu">
                 <img class ="logo" src="public/img/logo_cinelan.png" alt="">
                 <div class="boutons">
                     <a href="index.php?action=accueil">Accueil</a>
@@ -21,9 +28,22 @@
                     <a href="index.php?action=listPersonnages">Personnages</a>
                 </div>
             </nav>   
-                <?= $contenu ?>
+            <!-- RESPONSIVE MENU -->
+            <nav class="navigation" id="nav_responsive_menu">
+            <ul class="list">
+                <li><a href="index.php?action=accueil">Accueil</a></li>
+                <li><a href="index.php?action=listFilms">Films</a></li>
+                <li><a href="index.php?action=listActeurs">Acteurs</a></li>
+                <li><a href="index.php?action=listRealisateurs">Realisateurs</a></li>
+                <li><a href="index.php?action=listGenres">Genres</a></li>
+                <li><a href="index.php?action=listPersonnages">Personnages</a></li>
+            </ul>
+        </nav>
+        <?= $contenu ?>
             </div>
         </main>
     </div>
+
+    <script src="public/js/main.js"></script>
 </body>
 </html>

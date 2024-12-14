@@ -6,11 +6,23 @@
     --primary-font: "Krub", sans-serif;
 }
 
-body {
-    height: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #wrapper, #contenue {
     width: 100%;
+    height: 100%;
     background-color: #b6b1b1;
     font-family: var(--primary-font);
+
+}
+
+#wrapper {
+    position: relative;
+    overflow-x: hidden;
 }
 
 h2 {
@@ -27,12 +39,17 @@ h2 {
     cursor: pointer;
 }
 
+#nav_responsive_menu, .logo_responsive {
+    display: none;
+}
+
 /* ===========================================NAVBAR======================================== */
 
 .navbar {
+    display: flex;
     height: 10vh;
     background: var(--degrade-titres);
-    display: flex;
+    width: 100%;
     align-items: center;
     border-bottom: solid 5px black;
 }
@@ -88,7 +105,7 @@ h2 {
 /* ================================SECTION AFFICHAGE ACCUEIL================================================= */
 
 .sectionafficheaccueil {
-    height: 55vh;
+    height: auto;
 }
 
 .sectionbaniere {
@@ -113,7 +130,8 @@ h2 {
 }
 
 .block {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 2;  
     margin: 50px;
@@ -122,6 +140,7 @@ h2 {
 
 .affiche {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -156,7 +175,6 @@ h2 {
     height: 5%;
     background: var(--degrade-titres);
     width: 100%;
-    margin-top: 100px;
     margin-bottom: 10px;
 }
 

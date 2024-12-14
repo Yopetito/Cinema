@@ -1,0 +1,265 @@
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .blockaffiche {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .boutons {
+        display: none;
+    }
+
+    .block {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-ajouter {
+        padding: 20px;
+    }
+
+    .list_affiche {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 5%;
+    }
+
+    .personnage-item {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .add_film {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .add_acteur, .add_genre {
+        width: 90%;
+    }
+
+    .burger-menu {
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed; /* Position fixed pour qu'il apparaisse toujours en haut*/ 
+        top: 20px;
+        right: 25px;
+        z-index: 1000; 
+    }
+    
+    /* Les lignes du burger menu */
+    .burger-menu .line {
+        width: 100%;
+        height: 4px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2px;
+    }
+    #nav_menu {
+        display: none;
+    }
+
+    #nav_responsive_menu {
+        display: block;
+        position: absolute; 
+        margin: 0;
+        right: 10%;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+        transform-origin: 0% 0%; /*position en haut a gauche*/
+        transform: translate(0%, -100%);/*X-Y 100% vers la droit, 15% vers le bas*/
+        transition: transform 1s
+    }
+    
+    #nav_responsive_menu ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin: 0;
+        right: 0;
+        top: 0;
+        min-width: 80%;
+        height: 40%;
+        padding: 20px 0 0;
+        text-align: center;
+        background: #2e3838;
+        border-radius: 0 0 25px 25px;
+        list-style-type: none; /*Supprime les puces dans les lites html*/
+      }
+    
+    #nav_responsive_menu li {
+        padding: 10px 20px;
+      }
+    
+    #nav_responsive_menu a {
+        white-space: nowrap; /*pas de retour a la ligne*/
+        color: #ffffff;
+        font-style: italic;
+      }
+
+    #nav_responsive_menu.open {
+        display: block;
+        transform: none;
+        position: fixed;
+    }
+    .logo_responsive{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo_responsive img {
+        display: flex;
+        height: 200px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    .boutons {
+        display: none;
+    }
+
+    .block {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-ajouter {
+        padding: 20px;
+    }
+
+    .list_affiche {
+        grid-template-columns: 1fr;
+        padding: 0 5%;
+    }
+
+    .personnage-item {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .add_film {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .add_acteur, .add_genre {
+        width: 90%;
+    }
+
+    .navbar {
+        font-size: 14px;
+    }
+
+    .burger-menu {
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed; /* Position fixed pour qu'il apparaisse toujours en haut*/ 
+        top: 20px;
+        right: 10px;
+        z-index: 1000; 
+    }
+    
+    /* Les lignes du burger menu */
+    .burger-menu .line {
+        width: 100%;
+        height: 4px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2px;
+    }
+
+    #nav_menu {
+        display: none;
+    }
+
+    #nav_responsive_menu {
+        display: block;
+        position: absolute; 
+        margin: 0;
+        right: 10%;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+        transform-origin: 0% 0%; /*position en haut a gauche*/
+        transform: translate(0%, -100%);/*X-Y 100% vers la droit, 15% vers le bas*/
+        transition: transform 1s
+    }
+    
+    #nav_responsive_menu ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin: 0;
+        right: 0;
+        top: 0;
+        min-width: 80%;
+        height: 40%;
+        padding: 20px 0 0;
+        text-align: center;
+        background: #2e3838;
+        border-radius: 0 0 25px 25px;
+        list-style-type: none; /*Supprime les puces dans les lites html*/
+      }
+    
+    #nav_responsive_menu li {
+        padding: 10px 20px;
+      }
+    
+    #nav_responsive_menu a {
+        white-space: nowrap; /*pas de retour a la ligne*/
+        color: #ffffff;
+        font-style: italic;
+      }
+
+    #nav_responsive_menu.open {
+        display: block;
+        transform: none;
+        position: fixed;
+    }
+    .logo_responsive{
+
+    }
+
+    .logo_responsive img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        width: 150px;
+        margin-left: auto;
+    }
+
+    .logo {
+        display: none;
+    }
+}
