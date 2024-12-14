@@ -461,3 +461,53 @@ fieldset div label {
     color: #000000;
     padding: 5px;
 }
+
+
+
+
+/* =============================BARRE DE RECHERCHE======================== */
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+#search-form {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Définit la largeur de la barre de recherche */
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: white;
+}
+
+#search-input {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+#search-input::placeholder {
+    color: #aaa; 
+}
+
+#search-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5289d1;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #0D1F79;
+}

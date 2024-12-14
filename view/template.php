@@ -19,6 +19,12 @@
 
             <nav class="navbar" id="nav_menu">
                 <img class ="logo" src="public/img/logo_cinelan.png" alt="">
+                <div class="search-bar-container">
+                    <form id="search-form" action="index.php?action=recherche" method="POST">
+                        <input type="text" name="search" id="search-input" placeholder="Rechercher...">
+                        <button type="submit" id="search-button">🔍</button>
+                    </form>
+                </div>
                 <div class="boutons">
                     <a href="index.php?action=accueil">Accueil</a>
                     <a href="index.php?action=listFilms">Films</a>
