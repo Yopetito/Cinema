@@ -451,6 +451,13 @@ fieldset div label {
 .radio_section {
     display: flex;
     align-items: center;
-    gap: 5px; /* Espace entre le bouton radio et le texte */
+    gap: 5px; 
     margin: 15px;
+}
+
+.delete_form .btn_delete{
+    display: flex;
+    background-color: #df4545;
+    color: #000000;
+    padding: 5px;
 }

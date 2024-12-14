@@ -10,7 +10,8 @@ Class ActeurManager {
         $requete = $pdo->query("
             SELECT a.id_acteur,
             CONCAT(p.prenom, ' ', p.nom) AS nom_prenom,
-            p.affiche_personne
+            p.affiche_personne,
+            p.id_personne
             FROM personne p
 
             INNER JOIN acteur a
@@ -30,6 +31,7 @@ Class ActeurManager {
             CONCAT(p.prenom, ' ', p.nom) AS nomprenom,
             p.sexe,
             p.affiche_personne,
+            p.id_personne,
             DATE_FORMAT(p.dateNaissance, '%d/%m/%Y') AS dateNaissance
             FROM personne p
 
@@ -91,5 +93,20 @@ Class ActeurManager {
             VALUES (:id_personne)
         ");
         $requetteAddActeur->execute(["id_personne" => $lastIdPersonne]);
+    }
+
+    public function eraseActeur($idPersonne) {
+        $pdo = Connect::seConnecter();
+        $requeteDelActeur = $pdo->prepare("
+            DELETE FROM acteur
+            WHERE acteur.id_personne = :id
+        ");
+        $requeteDelActeur->execute(["id" => $idPersonne]);
+
+        $requeteDelPersonne = $pdo->prepare("
+            DELETE from personne
+            WHERE personne.id_personne = :id
+        ");
+        $requeteDelPersonne->execute(["id" => $idPersonne]);
     }
 }

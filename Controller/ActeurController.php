@@ -46,4 +46,17 @@ class ActeurController {
         require "view\addActeur.php";
 
     }
+
+    public function deleteActeur() {
+
+        if(isset($_POST['submit_delete'])) {
+            $idPersonne = $_POST['idPersonne'];
+            if($idPersonne > 0) {
+                $acteurManager = new ActeurManager();
+                $acteurManager->eraseActeur($idPersonne);
+            }
+            header("Location: index.php?action=listActeurs");
+            exit;
+        }
+    }
 }
