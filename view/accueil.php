@@ -15,9 +15,11 @@ ob_start();
     <div class="blockaffiche">
         <div class="block">
             <?php foreach($films as $film) { ?>
-            <div class="affiche">
-            <a href="index.php?action=detailFilm&id=<?=$film["id_film"]?>"><img src="<?=$film['affiche_film']?>" alt=""></a>
-            <p><?=$film['titre_film']?></p>
+           <div class="list_content">
+                <div class="affiche">
+                    <a href="index.php?action=detailFilm&id=<?=$film["id_film"]?>"><img src="<?=$film['affiche_film']?>" alt=""></a>
+                    <p><?=$film['titre_film']?></p>
+                </div>
             </div>
         <?php } ?>
         </div>
@@ -34,9 +36,11 @@ ob_start();
     <div class="blockaffiche">
         <div class="block">
         <?php foreach($acteurs as $acteur) { ?>
-            <div class="affiche">
-            <a href="index.php?action=detailFilm&id=<?=$acteur["id_acteur"]?>"><img src="<?=$acteur['affiche_personne']?>" alt=""></a>
-            <p><?= $acteur['nomprenom']?></p>
+            <div class="list_content">
+                <div class="affiche">
+                <a href="index.php?action=detailFilm&id=<?=$acteur["id_acteur"]?>"><img src="<?=$acteur['affiche_personne']?>" alt=""></a>
+                <p><?= $acteur['nomprenom']?></p>
+                </div>
             </div>
         <?php } ?>
         </div>

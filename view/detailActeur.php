@@ -6,11 +6,13 @@ if(!empty($acteurs)) {
         <div class="baniere">
             <h2> <?= $acteur['nomprenom'] ?></h2>
         </div>
-        <div class="afficheDetail">
-            <img src="<?= $acteur['affiche_personne'] ?>" alt="">
-            <div class="renseignement">
-                <p> Sexe: <?= $acteur["sexe"]; ?></p>
-                <p> Date de naissance: <?= $acteur["dateNaissance"] ?></p>
+        <div class="list_detail">
+            <div class="detail_personne">
+                <img src="<?= $acteur['affiche_personne'] ?>" alt="">
+                <div class="renseignements">
+                    <p> Sexe: <?= $acteur["sexe"]; ?></p>
+                    <p> Date de naissance: <?= $acteur["dateNaissance"] ?></p>
+                </div>
             </div>
         </div>
     <?php } ?>
@@ -18,10 +20,10 @@ if(!empty($acteurs)) {
     <div class="baniere">
             <p>Films dans lequel il/elle a joué:</p>
     </div>
-    <div class="sectionaffiche">
+    <div class="list_affiche">
     <?php
         foreach($castings as $casting) { ?>
-            <div class="affiche_list">
+            <div class="list_content">
                 <p><a href="index.php?action=listFilms&id=<?= $casting["id_film"] ?>"><img src="<?= $casting['affiche_film'] ?>" alt=""></a></p>
                 <div class="description">
                     <p>As <?= $casting["nom_personnage"] ?></p>

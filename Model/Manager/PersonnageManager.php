@@ -25,7 +25,9 @@ class PersonnageManager {
             personnage.nom_personnage, 
             film.titre_film, 
             film.id_film,
+            film.affiche_film,
             acteur.id_acteur,
+            personne.affiche_personne,
             CONCAT(personne.prenom, ' ', personne.nom) AS nomprenom
             FROM personnage
 

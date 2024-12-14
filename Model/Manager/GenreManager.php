@@ -22,7 +22,7 @@ class GenreManager {
     public function getGenreFilm($id) {
         $pdo = Connect::seConnecter();
         $requeteGenreFilm = $pdo->prepare("
-            SELECT g.id_genre, 
+            SELECT g.id_genre,  
             g.nom_genre, 
             film.titre_film, 
             film.id_film,

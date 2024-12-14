@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
+    margin: 0;
     --degrade-titres: linear-gradient(to right, white, #0D1F79);
     --primary-font: "Krub", sans-serif;
 }
@@ -8,7 +9,7 @@
 body {
     height: 100%;
     width: 100%;
-    background-color: #e7e1e1;
+    background-color: #b6b1b1;
     font-family: var(--primary-font);
 }
 
@@ -148,6 +149,7 @@ h2 {
     background: var(--degrade-titres);
     width: 100%;
     margin-top: 100px;
+    margin-bottom: 10px;
 }
 
 .baniere p {
@@ -168,7 +170,7 @@ h2 {
     border-radius: 25px;
 }
 
-.sectionaffiche {
+.list_affiche {
     display: grid;
     grid-template-columns: repeat(5, 200px);
     grid-template-rows: auto;
@@ -178,19 +180,27 @@ h2 {
     gap: 3% 6%;
 }
 
-.affiche_list img {
+.list_content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 224px;
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    background-color: #ffffff; 
+}
+
+.list_content a img {
+    display: flex;
+    justify-content: space-between;
     align-items: center; 
+    border-radius: 8px;
     height: 260px;
     width: 200px;
     object-fit: cover;
     border: solid 4px rgb(0, 0, 0);
     margin-top: 15px;
-}
-
-.affiche_list {
-    width: 200px;
 }
 
 .description p {
@@ -202,27 +212,103 @@ h2 {
 
 }
 
-/* ==============DETAILS========== */
+/* ==============DETAILS PERSONNE========== */
+.list_detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detail_personne {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 224px;
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    background-color: #ffffff; 
+}
 
-.afficheDetail {
-    margin-top: 20px;
+.detail_personne img {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border-radius: 8px;
+    height: 260px;
+    width: 200px;
+    object-fit: cover;
+    border: solid 4px rgb(0, 0, 0);
+    margin-top: 15px;
+}
+
+.renseignements {
+    text-align: center
+}
+
+/* ======================DETAIL PERSONNAGE======================== */
+
+.personnages-container {
+    display: flex;
+    flex-direction: column; /* Permet de passer à une nouvelle ligne si l'espace est insuffisant */
+    gap: 20px; /* Espace entre les cartes */
+    justify-content: center; /* Centre les cartes */
+    align-items: center;
+    margin: 20px auto;
+}
+
+.personnage-item {
+    display: flex; /* Arrange les éléments acteur et film en ligne */
+    flex-direction: row; /* Horizontal par défaut */
+    align-items: center; /* Aligne verticalement l'acteur et le film */
+    justify-content: space-between; /* Espace entre l'acteur et le film */
+    width: 600px; /* Largeur de chaque carte */
+    border: 1px solid #ddd; /* Optionnel : bordure pour démarquer */
+    border-radius: 8px; /* Optionnel : coins arrondis */
+    padding: 10px;
+    background-color: #f9f9f9; /* Optionnel : fond clair */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel : ombre */
+}
+
+.personnage-item img {
+    width: 150px; /* Taille des images */
+    height: auto;
+    border-radius: 8px; /* Optionnel : coins arrondis */
+    margin-right: 10px; /* Espace entre l'image et le texte */
+}
+
+.personne, .film {
+    text-align: center;
+    flex: 1; /* Acteur et film prennent chacun la moitié de l'espace disponible */
+}
+
+.nom-prenom, .titre-film {
+    margin-top: 10px; /* Espace au-dessus du texte */
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.nom-prenom a, .titre-film a {
+    text-decoration: none;
+}
+
+/* =====================DETAIL FILMS================== */
+
+.film_info {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.afficheDetail img {
+.film_info img {
     width: 200px;
     height: 260px;
-}
-
-.renseignement {
-    margin-left: 100px;
+    margin: 20px;
 }
 
 .synopsis_film p {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     text-align: justify;
     margin: 2%;
 }

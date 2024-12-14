@@ -7,12 +7,12 @@ if(!empty($films)) { ?>
         <div class="baniere">
             <h2> <?= $film['titre_film'] ?></h2>
         </div>
-        <div class="afficheDetail">
+        <div class="film_info">
             <img src="<?= $film['affiche_film'] ?>" alt="">
             <div class="renseignement">
                 <p> Date de sortie: <?= $film["dateSortie"]; ?></p>
                 <p> Durée: <?= $film["duree"] ?></p>
-                <p> Genre:</p>
+                <p> Genre(s):</p>
                 <?php
                 foreach ($genres as $genre) { ?>
                     <ul>
@@ -29,10 +29,10 @@ if(!empty($films)) { ?>
         <div class="baniere">
             <h3>Realisateur:</h3> 
         </div>
-        <div class="sectionaffiche">
-            <div class="affiche_list">
-                <p><a href="index.php?action=detailRealisateur&id=<?= $film["id_realisateur"] ?>"><?= $film["realisateur"] ?></a></p>
-                <img src="<?= $film['affiche_personne'] ?>" alt="">
+        <div class="list_detail">
+            <div class="detail_personne">
+                <img src="<?= $film['affiche_personne'] ?>" alt="">    
+                <p><a href="index.php?action=detailRealisateur&id=<?= $film["id_realisateur"] ?>"><?= $film["realisateur"] ?></a></p> 
             </div>
         </div>
         
@@ -41,10 +41,10 @@ if(!empty($films)) { ?>
     <div class="baniere">
         <h3>Acteurs:</h3> 
     </div>
-    <div class="sectionaffiche">
+    <div class="list_affiche">
     <?php
         foreach($castings as $casting) { ?>
-            <div class="affiche_list">
+            <div class="list_content">
                 <a href="index.php?action=detailActeur&id=<?= $casting["id_acteur"] ?>"><img src="<?=$casting['affiche_personnage'] ?>" alt=""></a>
                 <div class="description">
                     <p><?= $casting["nomprenom"] ?> </p>

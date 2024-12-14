@@ -5,11 +5,13 @@ if(!empty($realisateurs)) {
         <div class="baniere">
             <h2> <?= $realisateur['nomprenom'] ?></h2>
         </div>
-        <div class="afficheDetail">
-            <img src="<?= $realisateur['affiche_personne'] ?>" alt="">
-            <div class="renseignement">
-                <p> Sexe: <?= $realisateur["sexe"]; ?></p>
-                <p> Date de naissance: <?= $realisateur["dateNaissance"] ?></p>
+        <div class="list_detail">
+            <div class="detail_personne">
+                <img src="<?= $realisateur['affiche_personne'] ?>" alt="">
+                <div class="renseignements">
+                  <p> Sexe: <?= $realisateur["sexe"]; ?></p>
+                  <p> Date de naissance: <?= $realisateur["dateNaissance"] ?></p>
+                </div>
             </div>
         </div>
     <?php } ?>
@@ -17,10 +19,10 @@ if(!empty($realisateurs)) {
     <div class="baniere">
             <p>Films realisés:</p>
     </div>
-    <div class="sectionaffiche">
+    <div class="list_affiche">
     <?php
         foreach($films as $film) { ?>
-            <div class="affiche_list">
+            <div class="list_content">
                 <p><a href="index.php?action=listFilms&id=<?= $film["id_film"] ?>"><img src="<?= $film['affiche_film'] ?>" alt=""></a></p>
                 <div class="description">
                     <p>Date de sortie: <?= $film['dateSortie'] ?></p>

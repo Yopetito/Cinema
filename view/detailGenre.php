@@ -1,15 +1,17 @@
 <?php
 ob_start();
 
-if(!empty($films)) { ?>
+if(!empty($films)) { 
+    $nomgenre = $films[0]['nom_genre']; ?>
     <div class="baniere">
-        <h2>Dans ce genre:</h2>
+        <h2><?= $nomgenre ?> </h2>
     </div>
-    <div class="sectionaffiche">
+    <div class="list_affiche">
     <?php foreach($films as $film) { ?>
-        <div class="afficheDetail">
+        <div class="list_content">
             <div class="description">
-                <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><img src="<?= $film["affiche_film"] ?>" alt=""></a></td>
+                <a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>"><img src="<?= $film["affiche_film"] ?>" alt=""></a>
+                <p><?= $film['titre_film'] ?></p>
                 <p><?= $film["dateSortie"] ?></p>
             </div>
         </div>

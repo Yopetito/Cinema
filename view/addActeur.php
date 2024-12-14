@@ -20,7 +20,7 @@ ob_start();
         </p>
     </p>
         <label for="dateNaissance">Date de naissance:</label>
-        <input type="text" id="dateNaissance" name="dateNaissance" placeholder="aaaa/jj/mm">
+        <input type="date" id="dateNaissance" name="dateNaissance" placeholder="aaaa/jj/mm">
     </p>
     <p>              
         <input type="submit" name="submit" value="Ajouter l'acteur">

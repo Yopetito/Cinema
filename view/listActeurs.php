@@ -2,17 +2,17 @@
 ob_start(); 
 
 ?>
-<div class="sectionlist">
+<div class="list_container">
     <div class="baniere">
         <p class="titrebaniere">ACTEURS</p>
     </div>
     <div class="btn-ajouter">
         <button onclick="window.location.href='index.php?action=addActeur';">Ajouter un acteur</button>
     </div>
-    <div class="sectionaffiche">
+    <div class="list_affiche">
     <?php
        foreach($acteurs as $acteur) { ?>
-            <div class="affiche_list">
+            <div class="list_content">
                 <a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>"><img src="<?= $acteur["affiche_personne"] ?>" alt=""></a>
                 <div class="description">
                     <p><?= $acteur["nom_prenom"] ?></p>
