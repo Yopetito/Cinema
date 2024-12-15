@@ -1,4 +1,4 @@
-#🎬 Gestion de Films - Projet PHP MVC
+🎬 #Gestion de Films - Projet PHP MVC
 
 Bienvenue dans Gestion de Films, une application en PHP MVC permettant d'explorer et de gérer vos films, acteurs, genres, réalisateurs et personnages facilement ! 🎥
 
