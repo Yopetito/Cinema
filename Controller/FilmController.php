@@ -57,4 +57,28 @@ class FilmController {
         }
         require "view/addFilm.php";
     }
+
+    public function addCasting() {
+        $castingMembers = new FilmManager();
+        $films = $castingMembers->getFilms();
+        $personnages = $castingMembers->getPersonnages();
+        $acteurs = $castingMembers->getActeurs();
+
+        if(isset($_POST['submit'])) {
+            
+            $idFilm = filter_input(INPUT_POST, "id_film", FILTER_SANITIZE_NUMBER_INT);
+            $idPersonnage = filter_input(INPUT_POST, "id_personnage", FILTER_SANITIZE_NUMBER_INT);
+            $idActeur = filter_input(INPUT_POST, "id_acteur", FILTER_SANITIZE_NUMBER_INT);
+            
+            if($idFilm && $idPersonnage && $idActeur) {
+                $idFilm = $_POST['id_film'];
+                $idPersonnage = $_POST['id_personnage'];
+                $idActeur = $_POST['id_acteur'];
+
+                $filmManager = new FilmManager();
+                $addCasting = $filmManager->insertCasting($idFilm, $idPersonnage, $idActeur);
+            }
+        }
+    require "view/addCasting.php";
+    }
 }

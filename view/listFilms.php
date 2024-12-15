@@ -11,6 +11,7 @@ ob_start();
 
     <div class="btn-ajouter">
         <button onclick="window.location.href='index.php?action=addFilm';">Ajouter un film</button>
+        <button onclick="window.location.href='index.php?action=addCasting';">Ajouter un Casting</button>
     </div>
     <div class="list_affiche">
     <?php

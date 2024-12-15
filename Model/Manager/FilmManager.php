@@ -119,12 +119,44 @@ class FilmManager {
             INNER JOIN realisateur r
             ON p.id_personne = r.id_personne
 
-            ORDER BY p.nom ASC
+            ORDER BY nomprenom ASC
         ");
 
         $realisateurs = $requete->fetchAll();
 
         return $realisateurs;
+    }
+
+    public function getActeurs() {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("
+            SELECT a.id_acteur, 
+            CONCAT(p.prenom, ' ', p.nom) AS nomprenom
+            FROM personne p
+
+            INNER JOIN acteur a
+            ON p.id_personne = a.id_personne
+
+            ORDER BY nomprenom ASC
+        ");
+
+        $acteurs = $requete->fetchAll();
+
+        return $acteurs;
+    }
+
+    public function getPersonnages() {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("
+            SELECT p.id_personnage, p.nom_personnage
+            FROM personnage p
+
+            ORDER BY p.nom_personnage ASC
+        ");
+
+        $personnages = $requete->fetchAll();
+
+        return $personnages;
     }
 
     public function getGenres() {
@@ -168,4 +200,20 @@ class FilmManager {
             ]);
         }
     }
+
+    public function insertCasting($idFilm, $idPersonnage, $idActeur) {
+        $pdo = Connect::seConnecter();
+
+        $requeteAddCasting = $pdo->prepare("
+            INSERT INTO casting (id_film, id_personnage, id_acteur)
+            VALUES (:idFilm, :idPersonnage, :idActeur)
+        ");
+        $requeteAddCasting->execute([
+            "idFilm" => $idFilm,
+            "idPersonnage" => $idPersonnage,
+            "idActeur" => $idActeur
+        ]);
+    }
+
+
 }
