@@ -67,12 +67,20 @@ Ajoutez facilement un nouvel acteur via un formulaire interactif :
 
 📂 cinema/
 
-├── bdd/               # Script pour la creation de la bdd ainsi que des requettes de test
-├── Controller/        # Contrôleurs pour chaque entité
-├── Model/             # Managers pour les interactions SQL
-├── View/              # Vues pour l'affichage
-├── public/            # Fichiers statiques (CSS, JS, images)
-├── index.php          # Front Controller pour router les actions
+📂 cinema/
+│
+├── bdd/                   # Script pour la création de la bdd ainsi que des requêtes de test
+│
+├── Controller/            # Contrôleurs pour chaque entité
+│
+├── Model/                 # Managers pour les interactions SQL
+│
+├── View/                  # Vues pour l'affichage
+│
+├── public/                # Fichiers statiques (CSS, JS, images)
+│
+└── index.php              # Front Controller pour router les actions
+
 
 
 
