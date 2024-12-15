@@ -37,12 +37,19 @@
             <!-- RESPONSIVE MENU -->
             <nav class="navigation" id="nav_responsive_menu">
             <ul class="list">
+                <div class="search-bar-container">
+                    <form id="search-form" action="index.php?action=recherche" method="POST">
+                        <input type="text" name="search" id="search-input" placeholder="Rechercher...">
+                        <button type="submit" id="search-button">🔍</button>
+                    </form>
+                </div>
                 <li><a href="index.php?action=accueil">Accueil</a></li>
                 <li><a href="index.php?action=listFilms">Films</a></li>
                 <li><a href="index.php?action=listActeurs">Acteurs</a></li>
                 <li><a href="index.php?action=listRealisateurs">Realisateurs</a></li>
                 <li><a href="index.php?action=listGenres">Genres</a></li>
                 <li><a href="index.php?action=listPersonnages">Personnages</a></li>
+
             </ul>
         </nav>
         <?= $contenu ?>

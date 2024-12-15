@@ -15,8 +15,8 @@ if(!empty($films)) { ?>
                 <p> Genre(s):</p>
                 <?php
                 foreach ($genres as $genre) { ?>
-                    <ul>
-                        <li><a href="index.php?action=detailGenre&id=<?= $genre["id_genre"] ?>"><?= $genre["nom_genre"] ?></a></li>
+                    <ul class="list_genre_det">
+                        <li><a class="genre_list_detfilm" href="index.php?action=detailGenre&id=<?= $genre["id_genre"] ?>"><?= $genre["nom_genre"] ?></a></li>
                     </ul>
                 <?php } ?>
             </div>

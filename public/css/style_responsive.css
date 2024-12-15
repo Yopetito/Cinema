@@ -90,8 +90,7 @@
         right: 0;
         top: 0;
         min-width: 80%;
-        height: 40%;
-        padding: 20px 0 0;
+        padding: 10px 0 0;
         text-align: center;
         background: #2e3838;
         border-radius: 0 0 25px 25px;
@@ -121,7 +120,7 @@
 
     .logo_responsive img {
         display: flex;
-        height: 200px;
+        height: 100%;
         width: 100%;
         margin-left: auto;
         margin-right: auto;
@@ -129,6 +128,14 @@
 
     .logo {
         display: none;
+    }
+
+    .search-bar-container {
+        margin-bottom: 20px;
+    }
+    
+    .list {
+
     }
 }
 
@@ -223,7 +230,6 @@
         right: 0;
         top: 0;
         min-width: 80%;
-        height: 40%;
         padding: 20px 0 0;
         text-align: center;
         background: #2e3838;
@@ -247,16 +253,17 @@
         position: fixed;
     }
     .logo_responsive{
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .logo_responsive img {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 150px;
-        width: 150px;
+        height: 200px;
+        width: 100%;
         margin-left: auto;
+        margin-right: auto;
     }
 
     .logo {

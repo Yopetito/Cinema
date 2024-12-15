@@ -12,12 +12,14 @@ ob_start();
         <input type="text" id="prenomActeur" name="prenomActeur" placeholder="Prenom">
     </p>
     <p>Sexe:</p>
-        <p class="radio_section">
-            <label for="sexe">Homme:</label>
+        <div class="radio_section">
+            <label for="sexe_h">Homme</label>
             <input type="radio" id="sexe_h" name="sexe" value="Homme">
-            <label for="sexe">Femme:</label>
+            <label for="sexe_f">Femme</label>
             <input type="radio" id="sexe_f" name="sexe" value="Femme">
-        </p>
+
+            <div class="checked-radio-bg"></div>
+        </div>
     </p>
         <label for="dateNaissance">Date de naissance:</label>
         <input type="date" id="dateNaissance" name="dateNaissance">

@@ -2,7 +2,7 @@
 
 :root {
     margin: 0;
-    --degrade-titres: linear-gradient(to right, white, #0D1F79);
+    --degrade-titres: linear-gradient(to right, white, #0e35f7);
     --primary-font: "Krub", sans-serif;
 }
 
@@ -15,7 +15,7 @@
 html, body, #wrapper, #contenue {
     width: 100%;
     height: 100%;
-    background-color: #b6b1b1;
+    background-color: #292828;
     font-family: var(--primary-font);
 
 }
@@ -176,6 +176,7 @@ h2 {
     background: var(--degrade-titres);
     width: 100%;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .baniere p {
@@ -215,6 +216,11 @@ h2 {
     border: 1px solid #ddd; 
     border-radius: 8px; 
     background-color: #ffffff; 
+    transition: all 0.5s ease;
+}
+
+.list_content:hover {
+    transform: scale(1.1);
 }
 
 .list_content a img {
@@ -235,6 +241,7 @@ h2 {
     justify-content: center;
     text-align: center;
     margin-bottom: 10px;
+    color: rgb(27, 27, 27);
 
 }
 
@@ -267,9 +274,27 @@ h2 {
     margin-top: 15px;
 }
 
-.renseignements {
-    text-align: center
+.renseignement {
+    text-align: left;
 }
+
+.renseignement p {
+    color: white;
+}
+
+.list_genre_det {
+    list-style-type: none;
+}
+
+.genre_list_detfilm {
+    text-decoration: none;
+    color: white;
+}
+
+.genre_list_detfilm:hover {
+    color:#5289d1;
+}
+
 
 /* ======================DETAIL PERSONNAGE======================== */
 
@@ -331,11 +356,19 @@ h2 {
     margin: 20px;
 }
 
-.synopsis_film p {
+.synopsis_film h3{
     display: flex;
     justify-content: left;
     text-align: justify;
     margin: 2%;
+    color: white;
+}
+.synopsis_film p{
+    display: flex;
+    justify-content: left;
+    text-align: justify;
+    margin: 2%;
+    color: white;
 }
 
 
@@ -351,6 +384,7 @@ h2 {
     border-radius: 8px;
     width: 40%;
     margin: auto;
+    margin-top: 50px;
 }
 
 .add_acteur {
@@ -360,10 +394,11 @@ h2 {
     align-items: center;
     text-align: center;
     background: #ffffff;
-    padding: 40px;
+    padding: 50px;
     border-radius: 8px;
     width: 20%;
     margin: auto;
+    margin-top: 50px;
 }
 
 .add_genre {
@@ -377,6 +412,7 @@ h2 {
     border-radius: 8px;
     width: 20%;
     margin: auto;
+    margin-top: 50px;
 }
 
 form p, form div, form label, form input, form textarea, form select, form fieldset {
@@ -447,12 +483,62 @@ fieldset div label {
     border-radius: 4px;
     cursor: pointer;
 }
-
 .radio_section {
+    position: relative;
+    padding: 10px;
+    border-radius: 15px;
+    background: rgb(224, 224, 226);
     display: flex;
     align-items: center;
-    gap: 5px; 
-    margin: 15px;
+    gap: 20px; 
+}
+
+.radio_section input {
+    display: none;
+}
+
+.radio_section label {
+    position: relative;
+    margin: 0 10px;
+    user-select: none;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 16px;
+    color: #333; 
+    transition: color 0.3s ease;
+}
+
+.radio_section input:checked + label {
+    color: rgb(54, 54, 54); 
+}
+
+.radio_section label:hover {
+    color: rgb(76, 89, 158); */
+}
+
+.checked-radio-bg {
+    --width: 140px; /* Largeur initiale */
+    --left: 5px; /* Position initiale */
+
+    background: #b1b2b3; /* Couleur de fond */
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: var(--left);
+    width: var(--width);
+    border-radius: 10px;
+    z-index: 9;
+    transition: all 0.3s ease; /* Animation pour le déplacement */
+}
+
+#sexe_h:checked ~ .checked-radio-bg {
+    --width: 140px; /* Ajustez si nécessaire */
+    --left: 5px; /* Position pour Homme */
+}
+
+#sexe_f:checked ~ .checked-radio-bg {
+    --width: 140px; /* Ajustez si nécessaire */
+    --left: 140px; /* Position pour Femme */
 }
 
 .delete_form .btn_delete{
