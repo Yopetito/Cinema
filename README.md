@@ -64,7 +64,6 @@ Ajoutez facilement un nouvel acteur via un formulaire interactif :
 ![image](https://github.com/user-attachments/assets/6f6cec83-4ee7-4674-bcb9-4144ada60107)
 
 ### 📂 Structure des Dossiers :
-plaintext
 
 ├── Controller/        # Contrôleurs pour chaque entité
 ├── Model/             # Managers pour les interactions SQL
