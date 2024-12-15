@@ -31,7 +31,7 @@ if(!empty($acteurs)) {
     <?php
         foreach($castings as $casting) { ?>
             <div class="list_content">
-                <p><a href="index.php?action=listFilms&id=<?= $casting["id_film"] ?>"><img src="<?= $casting['affiche_film'] ?>" alt=""></a></p>
+                <p><a href="index.php?action=detailFilm&id=<?= $casting["id_film"] ?>"><img src="<?= $casting['affiche_film'] ?>" alt=""></a></p>
                 <div class="description">
                     <p>As <?= $casting["nom_personnage"] ?></p>
                     <p>Date de sortie: <?= $casting['dateSortie'] ?></p>
