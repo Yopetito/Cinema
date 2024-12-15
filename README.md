@@ -16,7 +16,7 @@ MVC (Modèle-Vue-Contrôleur) : Séparation claire entre la logique métier (Mod
 
 
 ## 🚀 Fonctionnalités Principales
-###Gestion des Films
+### Gestion des Films
      Liste des films et détails, Parcour des films disponibles avec leur:
      Durée formatée (heures/minutes)
      Date de sortie
