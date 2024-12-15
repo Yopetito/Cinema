@@ -21,10 +21,12 @@ Gestion des Films
      Date de sortie
      Réalisateur associé
      Affiches des films
+     
 ![image](https://github.com/user-attachments/assets/9316692e-45c5-4d43-b618-70c9b330f80b)
 
 📝 Ajouter un film/un actuer/un genre : Utilisez un formulaire intuitif pour ajouter un nouveau film à la base de données.
 🎥 Titre, réalisateur, date de sortie, durée
+
 ![image](https://github.com/user-attachments/assets/265f6bd7-126f-4f69-9bee-618292602f26)
 
 
